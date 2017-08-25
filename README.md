@@ -1,12 +1,12 @@
 # RepManagement
 
-Integrantes   	                    RA	        ID GitHub
+Integrantes   	                    /RA	        /ID GitHub
 
-Felipe Tosta dos Santos	            /171225	    /F3lip3Santos
+Felipe Tosta dos Santos	           /171225	    /F3lip3Santos
 
-Kelwin Fálico Mendes	              /177691	    /Kelwinfm
+Kelwin Fálico Mendes	             /177691	    /Kelwinfm
 
-Matheus Trevisan Simões	            /156748	   /MTS-Scissors
+Matheus Trevisan Simões	           /156748	   /MTS-Scissors
 
 Nykson Souza Krenkin da Silva	     /175352	   /NyksonKrenkin
 
