@@ -9,8 +9,8 @@ package classes;
  *
  * @author kelwin
  */
-public class Moradores {
-    private String Nome;
-    private String Apelido;
-    private float saldo_devedor_reserva;
+public class Reserva {
+    private float montante;
+    private float valor_mensal;
+    private float valor_individual;
 }

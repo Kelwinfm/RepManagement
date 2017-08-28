@@ -12,10 +12,12 @@ package classes;
 public class Contas {
     private float valor;
     private String descricao;
+    private String responsavel;
 
-    public Contas(float valor, String descricao) {
+    public Contas(float valor, String descricao, String responsavel) {
         this.valor = valor;
         this.descricao = descricao;
+        this.responsavel = responsavel;
     }
 
     public float getValor() {
@@ -30,7 +32,15 @@ public class Contas {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(String responsavel) {
         this.descricao = descricao;
+    }
+    
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 }
