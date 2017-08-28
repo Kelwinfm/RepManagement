@@ -7,7 +7,7 @@ package classes;
 
 /**
  *
- * @author kelwi
+ * @author kelwin
  */
 public class Moradores {
     private String Nome;
