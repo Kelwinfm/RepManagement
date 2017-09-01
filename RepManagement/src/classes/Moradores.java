@@ -12,5 +12,6 @@ package classes;
 public class Moradores {
     private String Nome;
     private String Apelido;
+    private int Idade;
     private float saldo_devedor_reserva;
 }
