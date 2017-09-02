@@ -5,22 +5,19 @@
  */
 package classes;
 
+import java.util.Date;
+
 /**
  *
  * @author kelwin
  */
 public class Moradores {
 
-    private String Nome;
-    private String Apelido;
-    private int Idade;
-    private float saldo_devedor_reserva;
-
     private String nome;
     private String rg;
     private String contato;
     private float saldoDevedor;
-    private String dataEntrada;
+    private Date dataEntrada;
     
     public void cadastrarMorador(){
         
