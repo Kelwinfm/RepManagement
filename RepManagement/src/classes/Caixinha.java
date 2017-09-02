@@ -9,22 +9,18 @@ package classes;
  *
  * @author kelwin
  */
-public class Contas {
-    private float valor;
-    private float tipo;
-    private int mes;
-    private int ano;
+public class Caixinha {
+    private float montante;
+    private float valorMensal;
+    private float valorIndividual;
     
-    public void gerarRelatorio(){
+    public void creditarValor(){
         
     }
-    public void consultarRelatorio(){
+    public void debitarValor(){
         
     }
-    public void adicionarConta(){
-        
-    }
-    public void calcContas(){
+    public void exibirMontante(){
         
     }
 }
