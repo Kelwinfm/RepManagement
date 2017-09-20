@@ -9,9 +9,8 @@ package classes;
  *
  * @author kelwin
  */
-public class Caixinha {
+public class Caixinha extends Despesas {
     private float montante;
-    private float valorMensal;
     private float valorIndividual;
     
     public void creditarValor(){

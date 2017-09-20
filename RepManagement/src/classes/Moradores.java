@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package classes;
-
-import java.util.Date;
-
 /**
  *
  * @author kelwin
@@ -14,10 +11,8 @@ import java.util.Date;
 public class Moradores {
 
     private String nome;
-    private String rg;
     private String contato;
     private float saldoDevedor;
-    private Date dataEntrada;
     
     public void cadastrarMorador(){
         
@@ -25,10 +20,7 @@ public class Moradores {
     public void listarMoradores(){
         //lista todos os moradores com seus atributos
     }
-    public int quantMoradores(){
-        //calcula quantidade de moradores na casa
-        int qtd = 0;
-        return qtd;
+    public void excluirMorador(){
     }
 
 }

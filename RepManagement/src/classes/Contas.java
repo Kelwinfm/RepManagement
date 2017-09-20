@@ -9,11 +9,8 @@ package classes;
  *
  * @author kelwin
  */
-public class Contas {
-    private float valor;
+public class Contas extends Despesas{
     private float tipo;
-    private int mes;
-    private int ano;
     
     public void gerarRelatorio(){
         
