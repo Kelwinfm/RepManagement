@@ -4,7 +4,7 @@ Nome:Felipe Tosta dos Santos; RA:171225; GitHubID:F3lip3Santos;
 
 Nome:Kelwin Fálico Mendes; RA:177691; GitHubID:Kelwinfm;
 
-Nome:Matheus Trevisan Simões; RA:156748; GitHubID:MTS-Scissors;
+Nome:Leonardo Martins Medeiros; RA:159825; GitHubID:leomartinsm;
 
 Nome:Nykson Souza Krenkin da Silva; RA:175352; GitHubID:NyksonKrenkin;
 
