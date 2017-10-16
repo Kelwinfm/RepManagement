@@ -36,8 +36,6 @@ public class AlterarCaixinha extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Valor para Inserção:");
 
         jLabel2.setText("Valor para Remoção:");

@@ -40,8 +40,6 @@ public class CadastroContas extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Mês:");
 
         jLabel2.setText("Ano:");
