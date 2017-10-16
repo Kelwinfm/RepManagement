@@ -11,6 +11,7 @@ package classes;
  */
 public class Contas extends Despesas{
     private float tipo;
+    private boolean status;//pago true ou nao pago false
     
     public void gerarRelatorio(){
         

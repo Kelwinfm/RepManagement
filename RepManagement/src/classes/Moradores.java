@@ -12,6 +12,7 @@ public class Moradores {
 
     private String nome;
     private String contato;
+    private String cpf;
     private float saldoDevedor;
     
     public void cadastrarMorador(){
@@ -20,7 +21,8 @@ public class Moradores {
     public void listarMoradores(){
         //lista todos os moradores com seus atributos
     }
-    public void excluirMorador(){
+    public void mvAntigosMoradores(){
+        
     }
 
 }

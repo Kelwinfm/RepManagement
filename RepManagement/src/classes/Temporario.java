@@ -11,4 +11,9 @@ package classes;
  */
 public class Temporario extends Moradores{
     private int periodoMinimo;
+    private float valorFixo;
+    
+    public float totalPagar(int periodo, float valor){
+        return periodo*valor;
+    }
 }
