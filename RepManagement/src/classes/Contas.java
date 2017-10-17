@@ -5,6 +5,8 @@
  */
 package classes;
 
+import java.util.Date;
+
 /**
  *
  * @author kelwin
@@ -12,6 +14,31 @@ package classes;
 public class Contas extends Despesas{
     private float tipo;
     private boolean status;//pago true ou nao pago false
+
+    public Contas(int mes, int ano, float valor, Date dataVenc, float tipo, boolean status) {
+        this.mes = mes;
+        this.ano = ano;
+        this.valor = valor;
+        this.dataVenc = dataVenc;
+        this.tipo = tipo;
+        this.status = status;
+    }
+    
+    public float getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(float tipo) {
+        this.tipo = tipo;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
     
     public void gerarRelatorio(){
         

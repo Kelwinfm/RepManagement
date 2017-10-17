@@ -12,4 +12,27 @@ package classes;
 public class Casa {
     private int qtdMoradores;
     private int vagas;
+
+    public Casa(int qtdMoradores, int vagas) {
+        this.qtdMoradores = qtdMoradores;
+        this.vagas = vagas;
+    }
+
+    public int getQtdMoradores() {
+        return qtdMoradores;
+    }
+
+    public void setQtdMoradores(int qtdMoradores) {
+        this.qtdMoradores = qtdMoradores;
+    }
+
+    public int getVagas() {
+        return vagas;
+    }
+
+    public void setVagas(int vagas) {
+        this.vagas = vagas;
+    }
+    
+    
 }

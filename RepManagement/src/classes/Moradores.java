@@ -10,10 +10,10 @@ package classes;
  */
 public class Moradores {
 
-    private String nome;
-    private String contato;
-    private String cpf;
-    private float saldoDevedor;
+    protected String nome;
+    protected String contato;
+    protected String cpf;
+    protected float saldoDevedor;
     
     public void cadastrarMorador(){
         

@@ -12,8 +12,10 @@ import java.util.Date;
  * @author kelwi
  */
 public class Despesas {
-    private int mes;
-    private int ano;
-    private float valor;
-    private Date dataVenc;
+    
+    protected int mes;
+    protected int ano;
+    protected float valor;
+    protected Date dataVenc;
+
 }
