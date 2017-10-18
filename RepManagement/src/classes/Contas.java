@@ -12,32 +12,32 @@ import java.util.Date;
  * @author kelwin
  */
 public class Contas extends Despesas{
-    private float tipo;
-    private boolean status;//pago true ou nao pago false
+    private String tipo;
+    private boolean pago;//pago true ou nao pago false
 
-    public Contas(int mes, int ano, float valor, Date dataVenc, float tipo, boolean status) {
+    public Contas(int mes, int ano, float valor, Date dataVenc, String tipo, boolean pago) {
         this.mes = mes;
         this.ano = ano;
         this.valor = valor;
         this.dataVenc = dataVenc;
         this.tipo = tipo;
-        this.status = status;
+        this.pago = pago;
     }
     
-    public float getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(float tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isPago() {
+        return true;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setPago(boolean pago) {
+        this.pago = true;
     }
     
     public void gerarRelatorio(){

@@ -10,9 +10,7 @@ package classes;
  * @author kelwi
  */
 public class Temporario extends Moradores{
-    private  int periodoMinimo;
-    private  float valorFixo;
-
+    private int periodo;
     /**
      *
      * @param nome
@@ -22,13 +20,14 @@ public class Temporario extends Moradores{
      * @param periodoMinimo
      * @param valorFixo
      */
-    public Temporario(String nome, String contato, String cpf, float saldoDevedor,int periodoMinimo, float valorFixo) {
+    public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
         this.nome = nome;
         this.contato = contato;
         this.cpf = cpf;
         this.saldoDevedor = saldoDevedor;
-        this.periodoMinimo = periodoMinimo;
         this.valorFixo = valorFixo;
+        this.periodo = periodoMinimo;
+
     }
 
     public String getNome() {
@@ -63,23 +62,24 @@ public class Temporario extends Moradores{
         this.saldoDevedor = saldoDevedor;
     }
 
-    public int getPeriodoMinimo() {
-        return periodoMinimo;
+    public int getPeriodo() {
+        return periodo;
     }
 
     public float getValorFixo() {
         return valorFixo;
     }
 
-    public void setPeriodoMinimo(int periodoMinimo) {
-        this.periodoMinimo = periodoMinimo;
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
 
     public void setValorFixo(float valorFixo) {
         this.valorFixo = valorFixo;
     }
-    
-    public float totalPagar(int periodo, float valor){
-        return periodo*valor;
+    @Override
+    public float totalPagar(float valorFixo){
+        float contas = 0;
+        return (getPeriodo()*valorFixo)+contas;
     }
 }

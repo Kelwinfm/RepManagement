@@ -15,11 +15,12 @@ public class Permanente extends Moradores {
     private  Date dataEntrada;
     private  String rg;
 
-    public Permanente(String nome, String contato, String cpf, float saldoDevedor, Date dataEntrada,String rg) {
+    public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, Date dataEntrada,String rg) {
         this.nome = nome;
         this.contato = contato;
         this.cpf = cpf;
         this.saldoDevedor = saldoDevedor;
+        this.valorFixo = valorFixo;
         this.dataEntrada = dataEntrada;
         this.rg = rg;
     }
@@ -71,5 +72,9 @@ public class Permanente extends Moradores {
     public void setRg(String rg) {
         this.rg = rg;
     }
-    
+    @Override
+    public float totalPagar( float aluguel){
+        float contas = 0;
+        return aluguel+contas;
+    }
 }

@@ -14,6 +14,7 @@ public class Moradores {
     protected String contato;
     protected String cpf;
     protected float saldoDevedor;
+    protected float valorFixo;
     
     public void cadastrarMorador(){
         
@@ -23,6 +24,10 @@ public class Moradores {
     }
     public void mvAntigosMoradores(){
         
+    }
+    public float totalPagar(float valorFixo){
+        return 0;
+    
     }
 
 }
