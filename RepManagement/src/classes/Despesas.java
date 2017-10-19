@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author kelwi
  */
-public class Despesas {
+public abstract class Despesas {
     
     protected int mes;
     protected int ano;

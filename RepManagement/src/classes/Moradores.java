@@ -8,7 +8,7 @@ package classes;
  *
  * @author kelwin
  */
-public class Moradores {
+public abstract class Moradores {
 
     protected String nome;
     protected String contato;
