@@ -13,15 +13,19 @@ import java.util.ArrayList;
  */
 public class Casa {
     private int qtdMoradores;
-    private int vagas;
-    ArrayList<Permanente> allMoradores;
+    private int vagasPerm;
+    private int vagasTemp;
+    ArrayList<Permanente> allMoradoresPerm;
+    ArrayList<Temporario>  allMoradoresTemp;
     ArrayList<Contas> allContas;
 
-    public Casa(int qtdMoradores, int vagas) {
-        this.allMoradores = new ArrayList<>();
-        this.allContas = new ArrayList<>();
+    public Casa(int qtdMoradores, int vagasPerm, int vagasTemp, ArrayList<Permanente> allMoradoresPerm, ArrayList<Temporario> allMoradoresTemp, ArrayList<Contas> allContas, ArrayList<Object> allMoradores) {
         this.qtdMoradores = qtdMoradores;
-        this.vagas = vagas;
+        this.vagasPerm = vagasPerm;
+        this.vagasTemp = vagasTemp;
+        this.allMoradoresPerm = allMoradoresPerm;
+        this.allMoradoresTemp = allMoradoresTemp;
+        this.allContas = allContas;
     }
 
     public int getQtdMoradores() {
@@ -32,13 +36,46 @@ public class Casa {
         this.qtdMoradores = qtdMoradores;
     }
 
-    public int getVagas() {
-        return vagas;
+    public int getVagasPerm() {
+        return vagasPerm;
     }
 
-    public void setVagas(int vagas) {
-        this.vagas = vagas;
+    public void setVagasPerm(int vagasPerm) {
+        this.vagasPerm = vagasPerm;
+    }
+
+    public int getVagasTemp() {
+        return vagasTemp;
+    }
+
+    public void setVagasTemp(int vagasTemp) {
+        this.vagasTemp = vagasTemp;
+    }
+
+    public ArrayList<Permanente> getAllMoradoresPerm() {
+        return allMoradoresPerm;
+    }
+
+    public void setAllMoradoresPerm(ArrayList<Permanente> allMoradoresPerm) {
+        this.allMoradoresPerm = allMoradoresPerm;
+    }
+
+    public ArrayList<Temporario> getAllMoradoresTemp() {
+        return allMoradoresTemp;
+    }
+
+    public void setAllMoradoresTemp(ArrayList<Temporario> allMoradoresTemp) {
+        this.allMoradoresTemp = allMoradoresTemp;
+    }
+
+    public ArrayList<Contas> getAllContas() {
+        return allContas;
+    }
+
+    public void setAllContas(ArrayList<Contas> allContas) {
+        this.allContas = allContas;
     }
     
+
     
 }
