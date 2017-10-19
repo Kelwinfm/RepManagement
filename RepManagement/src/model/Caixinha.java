@@ -14,14 +14,15 @@ import java.util.Date;
 public class Caixinha extends Despesas {
     private float montante;
     private float valorIndividual;
-    
+    /**
+     *
+     * @param montante
+     * @param valorIndividual
+     */    
     public Caixinha(int mes, int ano, float valor, Date dataVenc, float montante, float valorIndividual) {
-        this.mes = mes;
-        this.ano = ano;
-        this.valor = valor;
-        this.dataVenc = dataVenc;
-        this.montante = montante;
-        this.valorIndividual = valorIndividual;
+       super(mes, ano, valor, dataVenc);
+       this.montante = montante;
+       this.valorIndividual = valorIndividual;
     }
 
     public float getMontante() {

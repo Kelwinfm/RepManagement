@@ -15,11 +15,13 @@ public class Contas extends Despesas{
     private String tipo;
     private boolean pago;//pago true ou nao pago false
 
+    /**
+     *
+     * @param tipo
+     * @param pago
+     */
     public Contas(int mes, int ano, float valor, Date dataVenc, String tipo, boolean pago) {
-        this.mes = mes;
-        this.ano = ano;
-        this.valor = valor;
-        this.dataVenc = dataVenc;
+        super(mes, ano, valor, dataVenc);
         this.tipo = tipo;
         this.pago = pago;
     }

@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author kelwi
@@ -12,8 +14,12 @@ package model;
 public class Casa {
     private int qtdMoradores;
     private int vagas;
+    ArrayList<Permanente> allMoradores;
+    ArrayList<Contas> allContas;
 
     public Casa(int qtdMoradores, int vagas) {
+        this.allMoradores = new ArrayList<>();
+        this.allContas = new ArrayList<>();
         this.qtdMoradores = qtdMoradores;
         this.vagas = vagas;
     }
