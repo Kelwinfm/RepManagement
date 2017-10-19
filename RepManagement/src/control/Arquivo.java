@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arquivos;
+package control;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -57,7 +57,10 @@ public abstract class Arquivo implements Serializable {
     /**
      *
      * @param <T>
-     * @return
+     * @return 
+     * @throws java.io.IOException
+     * @throws java.io.FileNotFoundException
+     * @throws java.lang.ClassNotFoundException
      */
     protected <T> ArrayList<T> LoadAllFiles() throws IOException, FileNotFoundException, ClassNotFoundException, IllegalArgumentException {
         ArrayList<T> objetos = new ArrayList<T>();

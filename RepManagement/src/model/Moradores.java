@@ -3,26 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
-
-import java.util.Date;
-
+package model;
 /**
  *
- * @author kelwi
+ * @author kelwin
  */
-public class Permanente extends Moradores {
-    private  Date dataEntrada;
-    private  String rg;
+public abstract class Moradores {
 
-    public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, Date dataEntrada,String rg) {
+    protected String nome;
+    protected String contato;
+    protected String cpf;
+    protected float saldoDevedor;
+    protected float valorFixo;
+ /**
+     *
+     * @param nome
+     * @param contato
+     * @param cpf
+     * @param saldoDevedor
+     * @param valorFixo
+     */
+    public Moradores(String nome, String contato, String cpf, float saldoDevedor, float valorFixo) {
         this.nome = nome;
         this.contato = contato;
         this.cpf = cpf;
         this.saldoDevedor = saldoDevedor;
         this.valorFixo = valorFixo;
-        this.dataEntrada = dataEntrada;
-        this.rg = rg;
     }
 
     public String getNome() {
@@ -57,24 +63,27 @@ public class Permanente extends Moradores {
         this.saldoDevedor = saldoDevedor;
     }
 
-    public Date getDataEntrada() {
-        return dataEntrada;
+    public float getValorFixo() {
+        return valorFixo;
     }
 
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
+    public void setValorFixo(float valorFixo) {
+        this.valorFixo = valorFixo;
     }
-
-    public String getRg() {
-        return rg;
+    
+    public void cadastrarMorador(){
+        
     }
-
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void listarMoradores(){
+        //lista todos os moradores com seus atributos
     }
-    @Override
-    public float totalPagar( float aluguel){
+    public void mvAntigosMoradores(){
+        
+    }
+    public float totalPagar(float valorFixo){
         float contas = 0;
-        return aluguel+contas;
+        return valorFixo+contas;
+    
     }
+
 }
