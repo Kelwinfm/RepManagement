@@ -17,11 +17,7 @@ public abstract class Moradores {
     protected String cpf;
     protected float saldoDevedor;
     protected float valorFixo;
-    
-     /**
-     * Constrói objeto Moradores, inicializando informações sobre um novo morador inserido.
-     */
-    
+        
  /**
      *
      * @param nome Nome do morador

@@ -9,14 +9,21 @@ package model;
 import java.util.Date;
 
 /**
- * Esta classe provê acesso aos dados sobre montante e os valores individuais depositados mensalmente,
- * além dos atributos herdados da super classe
+ * Esta classe provê acesso aos dados sobre montante e os valores individuais 
+ * depositados mensalmente, além dos atributos herdados da super classe
+ * @see Despesas
  * @author kelwin
  * @author felipe
  */
 public class Caixinha extends Despesas {
     private float montante;
     private float valorIndividual;
+    
+    /**
+     * Constrói objeto Caixinha, inicializando informações sobre uma unica 
+     * caixinha da casa.
+     */
+    
     /**
      *
      * @param mes
@@ -57,6 +64,13 @@ public class Caixinha extends Despesas {
      * Retirar valor do montante
      */
     public void debitarValor(){
+        
+    }
+     /**
+     * Procedimento para geração de um log de inserção e remoção do montante 
+     * para controle dos moradores da entrada e saida de dinhheiro.
+     */
+    public void gerarLog(){
         
     }
 }

@@ -13,6 +13,12 @@ package model;
  */
 public class Temporario extends Moradores{
     private int periodo;
+    
+     /**
+     * Constrói objeto de um morador temporario, inicializando informações 
+     * sobre um novo morador temporario inserido.
+     */
+    
     /**
      *
      * @param nome

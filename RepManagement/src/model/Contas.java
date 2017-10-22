@@ -53,6 +53,9 @@ public class Contas extends Despesas{
         this.pago = true;
     }
     
+     /**
+     * Colocar todos os dados das contas pagas em um unico arquivo com os totais
+     */
     public void gerarRelatorio(){
         
     }

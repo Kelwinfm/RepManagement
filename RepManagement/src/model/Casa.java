@@ -75,9 +75,13 @@ public class Casa {
     public void setAllContas(ArrayList<Contas> allContas) {
         this.allContas = allContas;
     }
-    
-    public void calcularContas(){
-        
+     /**
+     * Soma todas as contas do array 
+     * @return o valor total de todas as contas para relatorio e divisao entre moradores
+     */
+    public float calcularContas(){
+       float total = 0;
+       return total; 
     }
 
     

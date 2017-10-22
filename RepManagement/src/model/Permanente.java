@@ -16,6 +16,12 @@ import java.util.Date;
 public class Permanente extends Moradores {
     private  Date dataEntrada;
     private  String rg;
+    
+     /**
+     * Constrói objeto de um morador permanente, inicializando informações 
+     * sobre um novo morador permanente inserido.
+     */
+    
  /**
      *
      * @param nome
