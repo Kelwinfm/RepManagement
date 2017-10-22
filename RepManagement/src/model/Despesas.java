@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Código de projeto de Programação Orientada a Objetos II
+ * Gerenciamento do financeiro de republicas
+ * FT-UNICAMP
+ *
  */
 package model;
 
@@ -9,7 +10,8 @@ import java.util.Date;
 
 /**
  *
- * @author kelwi
+ * Esta classe abstrata de Despesas é a super classe de Contas e Caixinha 
+ * @author kelwin
  */
 public abstract class Despesas {
     
@@ -19,10 +21,10 @@ public abstract class Despesas {
     protected Date dataVenc;
     /**
      *
-     * @param mes
-     * @param ano
-     * @param valor
-     * @param dataVenc
+     * @param mes Mes correspondente da despesa inserida e paga
+     * @param ano Ano correspondente da despesa inserida e paga
+     * @param valor Quanto custou determinada despesa
+     * @param dataVenc Data de vencimento da despesa
      */
     public Despesas(int mes, int ano, float valor, Date dataVenc) {
         this.mes = mes;

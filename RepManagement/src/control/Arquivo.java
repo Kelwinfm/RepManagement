@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Código de projeto de Programação Orientada a Objetos II
+ * Gerenciamento do financeiro de republicas
+ * FT-UNICAMP
+ *
  */
 package control;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author kelwi
+ * @author kelwin
  */
 public abstract class Arquivo implements Serializable {
     

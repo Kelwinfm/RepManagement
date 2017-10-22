@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Código de projeto de Programação Orientada a Objetos II
+ * Gerenciamento do financeiro de republicas
+ * FT-UNICAMP
+ *
  */
 package model;
 
@@ -17,9 +18,13 @@ public class Permanente extends Moradores {
     private  String rg;
  /**
      *
-
+     * @param nome
+     * @param contato
+     * @param cpf
      * @param dataEntrada
+     * @param valorFixo
      * @param rg
+     * @param saldoDevedor
      */
     public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, Date dataEntrada,String rg) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);

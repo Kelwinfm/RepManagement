@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Código de projeto de Programação Orientada a Objetos II
+ * Gerenciamento do financeiro de republicas
+ * FT-UNICAMP
+ *
  */
 package model;
 
@@ -14,7 +15,12 @@ public class Temporario extends Moradores{
     private int periodo;
     /**
      *
-     * @param periodo
+     * @param nome
+     * @param contato
+     * @param cpf
+     * @param saldoDevedor
+     * @param valorFixo
+     * @param periodoMinimo
      */
     public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
        super(nome, contato, cpf, saldoDevedor, valorFixo);

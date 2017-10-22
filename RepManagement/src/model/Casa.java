@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author kelwi
+ * @author kelwin
  */
 public class Casa {
     private int qtdMoradores;
@@ -76,6 +76,9 @@ public class Casa {
         this.allContas = allContas;
     }
     
+    public void calcularContas(){
+        
+    }
 
     
 }
