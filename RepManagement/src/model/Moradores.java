@@ -8,6 +8,7 @@ package model;
 /**
  *
  * @author kelwin
+ * @author felipe
  */
 public abstract class Moradores {
 
@@ -16,13 +17,18 @@ public abstract class Moradores {
     protected String cpf;
     protected float saldoDevedor;
     protected float valorFixo;
+    
+     /**
+     * Constrói objeto Moradores, inicializando informações sobre um novo morador inserido.
+     */
+    
  /**
      *
-     * @param nome
-     * @param contato
-     * @param cpf
-     * @param saldoDevedor
-     * @param valorFixo
+     * @param nome Nome do morador
+     * @param contato Numero de telefone do morador
+     * @param cpf CPF do morador
+     * @param saldoDevedor Valor devido pelo morador, sejam contas ou do aluguel
+     * @param valorFixo 
      */
     public Moradores(String nome, String contato, String cpf, float saldoDevedor, float valorFixo) {
         this.nome = nome;
@@ -31,6 +37,8 @@ public abstract class Moradores {
         this.saldoDevedor = saldoDevedor;
         this.valorFixo = valorFixo;
     }
+    
+    
 
     public String getNome() {
         return nome;
@@ -81,6 +89,12 @@ public abstract class Moradores {
     public void mvAntigosMoradores(){
         
     }
+    
+  /**
+   * 
+   * @param valorFixo
+   * @return Valor do aluguel mais as contas do mês
+   */
     public float totalPagar(float valorFixo){
         float contas = 0;
         return valorFixo+contas;

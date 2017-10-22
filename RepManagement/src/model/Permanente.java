@@ -21,10 +21,10 @@ public class Permanente extends Moradores {
      * @param nome
      * @param contato
      * @param cpf
-     * @param dataEntrada
+     * @param dataEntrada Data da entrada do morador permanente na casa
      * @param valorFixo
-     * @param rg
-     * @param saldoDevedor
+     * @param rg RG do morador permanente
+     * @param saldoDevedor 
      */
     public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, Date dataEntrada,String rg) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);

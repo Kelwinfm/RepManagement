@@ -18,9 +18,9 @@ public class Temporario extends Moradores{
      * @param nome
      * @param contato
      * @param cpf
-     * @param saldoDevedor
-     * @param valorFixo
-     * @param periodoMinimo
+     * @param saldoDevedor Valor devido pelo morador das contas ou valorFixo
+     * @param valorFixo Valor definido semanalmente pelo Moradores permanentes
+     * @param periodoMinimo Periodo de tempo em que o morador temporario ficará na casa
      */
     public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
        super(nome, contato, cpf, saldoDevedor, valorFixo);
@@ -33,6 +33,13 @@ public class Temporario extends Moradores{
     public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
+    
+    /**
+     * 
+     * @param valorFixo
+     * @return Valor do periodo de estadia * um valor pré definido
+     */
+    
     @Override 
     public float totalPagar(float valorFixo){
         float contas = 0;
