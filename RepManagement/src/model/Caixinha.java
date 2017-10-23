@@ -33,7 +33,7 @@ public class Caixinha extends Despesas {
      * @param montante Total dos valores depositados mensalmente
      * @param valorIndividual Quantidade de um valor depositado individual e mensalmente 
      */    
-    public Caixinha(int mes, int ano, float valor, Date dataVenc, float montante, float valorIndividual) {
+    public Caixinha(int mes, int ano, float valor, String dataVenc, float montante, float valorIndividual) {
        super(mes, ano, valor, dataVenc);
        this.montante = montante;
        this.valorIndividual = valorIndividual;

@@ -31,7 +31,7 @@ public class Contas extends Despesas{
      * @param pago Pode receber True se tiver sido paga ou False se ainda nao foi paga
      */
     
-    public Contas(int mes, int ano, float valor, Date dataVenc, String tipo, boolean pago) {
+    public Contas(int mes, int ano, float valor, String dataVenc, String tipo, boolean pago) {
         super(mes, ano, valor, dataVenc);
         this.tipo = tipo;
         this.pago = pago;

@@ -5,6 +5,7 @@
  */
 package main;
 
+import control.ContasDAO;
 import view.MenuPrincipal;
 
 /**
@@ -15,8 +16,11 @@ public class RepManagement {
 
 
     public static void main(String[] args) {
-        MenuPrincipal addMenu = new MenuPrincipal();
-            addMenu.setVisible(true);
+        //MenuPrincipal addMenu = new MenuPrincipal();
+           // addMenu.setVisible(true);
+        ContasDAO conta = new ContasDAO(10,2017,(float) 80.67, "23/10/2017","Agua",true);
+        conta.Save();
+        System.out.println("Salvo");
     }
     
 }

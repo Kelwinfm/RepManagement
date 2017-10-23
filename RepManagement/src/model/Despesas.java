@@ -18,7 +18,7 @@ public abstract class Despesas {
     protected int mes;
     protected int ano;
     protected float valor;
-    protected Date dataVenc;
+    protected String dataVenc;
     /**
      *
      * @param mes Mes correspondente da despesa inserida e paga
@@ -26,7 +26,7 @@ public abstract class Despesas {
      * @param valor Quanto custou determinada despesa
      * @param dataVenc Data de vencimento da despesa
      */
-    public Despesas(int mes, int ano, float valor, Date dataVenc) {
+    public Despesas(int mes, int ano, float valor, String dataVenc) {
         this.mes = mes;
         this.ano = ano;
         this.valor = valor;
@@ -57,11 +57,11 @@ public abstract class Despesas {
         this.valor = valor;
     }
 
-    public Date getDataVenc() {
+    public String getDataVenc() {
         return dataVenc;
     }
 
-    public void setDataVenc(Date dataVenc) {
+    public void setDataVenc(String dataVenc) {
         this.dataVenc = dataVenc;
     }
 
