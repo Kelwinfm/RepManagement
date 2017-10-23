@@ -5,12 +5,15 @@
  *
  */
 package model;
+
+import control.ArquivoAbstract;
+
 /**
  *
  * @author kelwin
  * @author felipe
  */
-public abstract class Moradores {
+public abstract class Moradores extends ArquivoAbstract{
 
     protected String nome;
     protected String contato;

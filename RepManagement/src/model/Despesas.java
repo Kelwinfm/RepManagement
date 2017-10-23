@@ -6,6 +6,7 @@
  */
 package model;
 
+import control.ArquivoAbstract;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  * Esta classe abstrata de Despesas é a super classe de Contas e Caixinha 
  * @author kelwin
  */
-public abstract class Despesas {
+public abstract class Despesas extends ArquivoAbstract{
     
     protected int mes;
     protected int ano;
