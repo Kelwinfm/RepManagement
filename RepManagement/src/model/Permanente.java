@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,11 +42,22 @@ public class Permanente extends Moradores implements Arquivos, Serializable{
      * @param rg RG do morador permanente
      * @param saldoDevedor 
      */
-    public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, String dataEntrada,String rg) {
+    public Permanente(){
+        super();
+        rg = null;
+        dataEntrada = null;
+    }
+    public Permanente(String nome, String contato, String cpf, String saldoDevedor,String valorFixo, String dataEntrada,String rg){
+        super(nome, contato, cpf, saldoDevedor, valorFixo);
+        setRg(rg);
+        setDataEntrada(dataEntrada);
+    }
+    
+    /*public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, String dataEntrada,String rg) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);
         this.dataEntrada = dataEntrada;
         this.rg = rg;
-    }
+    }*/
 
     public String getDataEntrada() {
         return dataEntrada;
@@ -102,5 +114,30 @@ public class Permanente extends Moradores implements Arquivos, Serializable{
             Logger.getLogger(Permanente.class.getName()).log(Level.SEVERE, null, ex);
         }
   
+    }
+           @Override
+    public Permanente Load(String nome) {
+        File arquivo = new File(DiretorioNome() + nome);
+        Permanente t = null;
+
+        try {
+            t = LoadFile(arquivo);
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
+    }
+       @Override
+    public  ArrayList<Permanente> LoadAll() {
+        ArrayList<Permanente> t = null;
+
+        try {
+            t = LoadAllFiles();
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
     }
 }

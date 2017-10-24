@@ -3,7 +3,7 @@
 * Gerenciamento do financeiro de republicas
 * FT-UNICAMP
 *
-*/
+ */
 package model;
 
 import java.util.ArrayList;
@@ -13,77 +13,66 @@ import java.util.ArrayList;
  * @author kelwin
  */
 public class Casa {
-    private int qtdMoradores;
-    private int vagasPerm;
-    private int vagasTemp;
-    ArrayList<Permanente> allMoradoresPerm;
-    ArrayList<Temporario>  allMoradoresTemp;
-    ArrayList<Contas> allContas;
 
-    public Casa(int qtdMoradores, int vagasPerm, int vagasTemp, ArrayList<Permanente> allMoradoresPerm, ArrayList<Temporario> allMoradoresTemp, ArrayList<Contas> allContas, ArrayList<Object> allMoradores) {
+    private String qtdMoradores;
+    private String vagasPerm;
+    private String vagasTemp;
+
+    /*public Casa(int qtdMoradores, int vagasPerm, int vagasTemp, ArrayList<Permanente> allMoradoresPerm, ArrayList<Temporario> allMoradoresTemp, ArrayList<Contas> allContas) {
         this.qtdMoradores = qtdMoradores;
         this.vagasPerm = vagasPerm;
         this.vagasTemp = vagasTemp;
         this.allMoradoresPerm = allMoradoresPerm;
         this.allMoradoresTemp = allMoradoresTemp;
         this.allContas = allContas;
+    }*/
+    public Casa(){
+        qtdMoradores = null;
+        vagasPerm = null;
+        vagasTemp = null;
+    }
+    
+    public Casa(String qtdMoradores, String vagasPerm, String vagasTemp) {
+
+        setQtdMoradores(qtdMoradores);
+        setVagasPerm(vagasPerm);
+        setVagasTemp(vagasTemp);
+
     }
 
-    public int getQtdMoradores() {
+    public String getQtdMoradores() {
         return qtdMoradores;
     }
 
-    public void setQtdMoradores(int qtdMoradores) {
+    public void setQtdMoradores(String qtdMoradores) {
         this.qtdMoradores = qtdMoradores;
     }
 
-    public int getVagasPerm() {
+    public String getVagasPerm() {
         return vagasPerm;
     }
 
-    public void setVagasPerm(int vagasPerm) {
+    public void setVagasPerm(String vagasPerm) {
         this.vagasPerm = vagasPerm;
     }
 
-    public int getVagasTemp() {
+    public String getVagasTemp() {
         return vagasTemp;
     }
 
-    public void setVagasTemp(int vagasTemp) {
+    public void setVagasTemp(String vagasTemp) {
         this.vagasTemp = vagasTemp;
     }
 
-    public ArrayList<Permanente> getAllMoradoresPerm() {
-        return allMoradoresPerm;
-    }
-
-    public void setAllMoradoresPerm(ArrayList<Permanente> allMoradoresPerm) {
-        this.allMoradoresPerm = allMoradoresPerm;
-    }
-
-    public ArrayList<Temporario> getAllMoradoresTemp() {
-        return allMoradoresTemp;
-    }
-
-    public void setAllMoradoresTemp(ArrayList<Temporario> allMoradoresTemp) {
-        this.allMoradoresTemp = allMoradoresTemp;
-    }
-
-    public ArrayList<Contas> getAllContas() {
-        return allContas;
-    }
-
-    public void setAllContas(ArrayList<Contas> allContas) {
-        this.allContas = allContas;
-    }
-     /**
-     * Soma todas as contas do array 
-     * @return o valor total de todas as contas para relatorio e divisao entre moradores
+    /**
+     * Soma todas as contas do array
+     *
+     * @return o valor total de todas as contas para relatorio e divisao entre
+     * moradores
      */
-    public float calcularContas(){
-       float total = 0;
-       return total; 
+    public float calcularContas() {
+        float total = 0;
+        return total;
     }
 
-    
 }

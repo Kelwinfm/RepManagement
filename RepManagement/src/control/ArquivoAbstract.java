@@ -18,32 +18,6 @@ import model.Contas;
  * @author kelwi
  */
 public abstract class ArquivoAbstract implements Arquivos{
-       @Override
-    public <T> ArrayList<T> LoadAll() {
-        ArrayList<Contas> t = null;
-
-        try {
-            t = LoadAllFiles();
-        } catch (ClassNotFoundException ex) {
-            throw ex;
-        } finally {
-            return (ArrayList<T>) t;
-        }
-    }
-
-    @Override
-    public Contas Load(String nome) {
-        File arquivo = new File(DiretorioNome() + nome);
-        Contas t = null;
-
-        try {
-            t = LoadFile(arquivo);
-        } catch (ClassNotFoundException ex) {
-            throw ex;
-        } finally {
-            return t;
-        }
-    }
     
     @Override
     public void Remove() {

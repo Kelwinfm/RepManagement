@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
  * @see Moradores
  */
 public class Temporario extends Moradores implements Arquivos, Serializable{
-    private int periodo;
+    private String periodo;
     
      /**
      * Constrói objeto de um morador temporario, inicializando informações 
@@ -38,15 +39,24 @@ public class Temporario extends Moradores implements Arquivos, Serializable{
      * @param valorFixo Valor definido semanalmente pelo Moradores permanentes
      * @param periodoMinimo Periodo de tempo em que o morador temporario ficará na casa
      */
-    public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
+    public Temporario(){
+        super();
+        periodo = null;
+    }
+    public Temporario(String nome, String contato, String cpf, String saldoDevedor,String valorFixo, String periodo){
+        super(nome, contato, cpf, saldoDevedor, valorFixo);
+        setPeriodo(periodo);
+
+    }
+    /*public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
        super(nome, contato, cpf, saldoDevedor, valorFixo);
        this.periodo = periodoMinimo;
 
-    }
-    public int getPeriodo() {
+    }*/
+    public String getPeriodo() {
         return periodo;
     }
-    public void setPeriodo(int periodo) {
+    public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
     
@@ -57,9 +67,12 @@ public class Temporario extends Moradores implements Arquivos, Serializable{
      */
     
     @Override 
-    public float totalPagar(float valorFixo){
+    public float totalPagar(String valorFixo){
         float contas = 0;
-        return (getPeriodo()*valorFixo)+contas;
+        int valor = Integer.parseInt(valorFixo);
+        int tempo = Integer.parseInt(getPeriodo());
+        return (tempo*valor)+contas;
+        
     }
 
     @Override
@@ -101,5 +114,30 @@ public class Temporario extends Moradores implements Arquivos, Serializable{
             Logger.getLogger(Temporario.class.getName()).log(Level.SEVERE, null, ex);
         }
   
+    }
+           @Override
+    public Temporario Load(String nome) {
+        File arquivo = new File(DiretorioNome() + nome);
+        Temporario t = null;
+
+        try {
+            t = LoadFile(arquivo);
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
+    }
+       @Override
+    public  ArrayList<Temporario> LoadAll() {
+        ArrayList<Temporario> t = null;
+
+        try {
+            t = LoadAllFiles();
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
     }
 }

@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,8 +27,8 @@ import java.util.logging.Logger;
  * @author felipe
  */
 public class Caixinha extends Despesas implements Arquivos, Serializable {
-    private float montante;
-    private float valorIndividual;
+    private String montante;
+    private String valorIndividual;
     
     /**
      * Constrói objeto Caixinha, inicializando informações sobre uma unica 
@@ -42,26 +43,36 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
      * @param dataVenc
      * @param montante Total dos valores depositados mensalmente
      * @param valorIndividual Quantidade de um valor depositado individual e mensalmente 
-     */    
-    public Caixinha(int mes, int ano, float valor, String dataVenc, float montante, float valorIndividual) {
+     */   
+    public Caixinha() {
+        super();
+        montante = null;
+        valorIndividual = null;
+    }
+    public Caixinha(String mes, String ano, String valor, String dataVenc, String montante, String valorIndividual) {
+        super(mes, ano, valor, dataVenc);
+        setMontante(montante);
+        setValorIndividual(valorIndividual);
+    }
+    /*public Caixinha(int mes, int ano, float valor, String dataVenc, String montante, String valorIndividual) {
        super(mes, ano, valor, dataVenc);
        this.montante = montante;
        this.valorIndividual = valorIndividual;
     }
-
-    public float getMontante() {
+*/
+    public String getMontante() {
         return montante;
     }
 
-    public void setMontante(float montante) {
+    public void setMontante(String montante) {
         this.montante = montante;
     }
 
-    public float getValorIndividual() {
+    public String getValorIndividual() {
         return valorIndividual;
     }
 
-    public void setValorIndividual(float valorIndividual) {
+    public void setValorIndividual(String valorIndividual) {
         this.valorIndividual = valorIndividual;
     }    
     /**
@@ -123,5 +134,30 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
             Logger.getLogger(Caixinha.class.getName()).log(Level.SEVERE, null, ex);
         }
   
+    }
+            @Override
+    public Caixinha Load(String nome) {
+        File arquivo = new File(DiretorioNome() + nome);
+        Caixinha t = null;
+
+        try {
+            t = LoadFile(arquivo);
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
+    }
+       @Override
+    public  ArrayList<Caixinha> LoadAll() {
+        ArrayList<Caixinha> t = null;
+
+        try {
+            t = LoadAllFiles();
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
     }
 }

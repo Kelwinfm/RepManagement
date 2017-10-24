@@ -42,12 +42,21 @@ public class Contas extends Despesas implements Arquivos, Serializable{
      * @param tipo Tipo de conta a ser inserida (EX: Agua,luz,internet)
      * @param pago Pode receber True se tiver sido paga ou False se ainda nao foi paga
      */
-    
-    public Contas(int mes, int ano, float valor, String dataVenc, String tipo, boolean pago) {
+    public Contas(){
+        super();
+        tipo = null;
+        pago = true;
+    }
+    public Contas(String mes, String ano, String valor, String dataVenc,String tipo, boolean pago){
+        super(mes, ano, valor, dataVenc);
+        setTipo(tipo);
+        setPago(true);
+    }
+    /*public Contas(int mes, int ano, float valor, String dataVenc, String tipo, boolean pago) {
         super(mes, ano, valor, dataVenc);
         this.tipo = tipo;
         this.pago = pago;
-    }
+    }*/
     
     public String getTipo() {
         return tipo;
@@ -115,6 +124,32 @@ public class Contas extends Despesas implements Arquivos, Serializable{
         }
   
     }
+        @Override
+    public Contas Load(String nome) {
+        File arquivo = new File(DiretorioNome() + nome);
+        Contas t = null;
+
+        try {
+            t = LoadFile(arquivo);
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
+    }
+       @Override
+    public  ArrayList<Contas> LoadAll() {
+        ArrayList<Contas> t = null;
+
+        try {
+            t = LoadAllFiles();
+        } catch (ClassNotFoundException ex) {
+            throw ex;
+        } finally {
+            return t;
+        }
+    }
+
 
     
 }

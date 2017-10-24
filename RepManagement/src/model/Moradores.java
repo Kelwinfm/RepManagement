@@ -18,8 +18,8 @@ public abstract class Moradores extends ArquivoAbstract{
     protected String nome;
     protected String contato;
     protected String cpf;
-    protected float saldoDevedor;
-    protected float valorFixo;
+    protected String saldoDevedor;
+    protected String valorFixo;
         
  /**
      *
@@ -29,13 +29,28 @@ public abstract class Moradores extends ArquivoAbstract{
      * @param saldoDevedor Valor devido pelo morador, sejam contas ou do aluguel
      * @param valorFixo 
      */
-    public Moradores(String nome, String contato, String cpf, float saldoDevedor, float valorFixo) {
+    
+    public Moradores(){
+        nome = null;
+        contato = null;
+        cpf = null;
+        saldoDevedor = null;
+        valorFixo = null;
+    }
+    public Moradores(String nome, String contato, String cpf, String saldoDevedor, String valorFixo){
+        setNome(nome);
+        setContato(contato);
+        setCpf(cpf);
+        setSaldoDevedor(saldoDevedor);
+        setValorFixo(valorFixo);
+    }
+    /*public Moradores(String nome, String contato, String cpf, float saldoDevedor, float valorFixo) {
         this.nome = nome;
         this.contato = contato;
         this.cpf = cpf;
         this.saldoDevedor = saldoDevedor;
         this.valorFixo = valorFixo;
-    }
+    }*/
     
     
 
@@ -63,19 +78,19 @@ public abstract class Moradores extends ArquivoAbstract{
         this.cpf = cpf;
     }
 
-    public float getSaldoDevedor() {
+    public String getSaldoDevedor() {
         return saldoDevedor;
     }
 
-    public void setSaldoDevedor(float saldoDevedor) {
+    public void setSaldoDevedor(String saldoDevedor) {
         this.saldoDevedor = saldoDevedor;
     }
 
-    public float getValorFixo() {
+    public String getValorFixo() {
         return valorFixo;
     }
 
-    public void setValorFixo(float valorFixo) {
+    public void setValorFixo(String valorFixo) {
         this.valorFixo = valorFixo;
     }
     
@@ -94,9 +109,10 @@ public abstract class Moradores extends ArquivoAbstract{
    * @param valorFixo
    * @return Valor do aluguel mais as contas do mês
    */
-    public float totalPagar(float valorFixo){
+    public float totalPagar(String valorFixo){
         float contas = 0;
-        return valorFixo+contas;
+        int valor = Integer.parseInt(valorFixo);
+        return valor+contas;
     
     }
 
