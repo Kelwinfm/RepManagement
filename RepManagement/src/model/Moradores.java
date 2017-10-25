@@ -13,107 +13,151 @@ import control.ArquivoAbstract;
  * @author kelwin
  * @author felipe
  */
-public abstract class Moradores extends ArquivoAbstract{
+public abstract class Moradores extends ArquivoAbstract {
 
     protected String nome;
     protected String contato;
     protected String cpf;
     protected String saldoDevedor;
     protected String valorFixo;
-        
- /**
-     *
-     * @param nome Nome do morador
-     * @param contato Numero de telefone do morador
-     * @param cpf CPF do morador
-     * @param saldoDevedor Valor devido pelo morador, sejam contas ou do aluguel
-     * @param valorFixo 
+
+    /**
+     * Cria um objeto vazio passando null para todos parametros
      */
-    
-    public Moradores(){
+    public Moradores() {
         nome = null;
         contato = null;
         cpf = null;
         saldoDevedor = null;
         valorFixo = null;
     }
-    public Moradores(String nome, String contato, String cpf, String saldoDevedor, String valorFixo){
+
+    /**
+     *
+     * @param nome Nome do morador
+     * @param contato Numero de telefone do morador
+     * @param cpf CPF do morador
+     * @param saldoDevedor Valor devido pelo morador, sejam contas ou do aluguel
+     * @param valorFixo
+     */
+    public Moradores(String nome, String contato, String cpf, String saldoDevedor, String valorFixo) {
         setNome(nome);
         setContato(contato);
         setCpf(cpf);
         setSaldoDevedor(saldoDevedor);
         setValorFixo(valorFixo);
     }
-    /*public Moradores(String nome, String contato, String cpf, float saldoDevedor, float valorFixo) {
-        this.nome = nome;
-        this.contato = contato;
-        this.cpf = cpf;
-        this.saldoDevedor = saldoDevedor;
-        this.valorFixo = valorFixo;
-    }*/
-    
-    
 
+    /**
+     *
+     * @return nome do morador
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return telefone do morador
+     */
     public String getContato() {
         return contato;
     }
 
+    /**
+     *
+     * @param contato
+     */
     public void setContato(String contato) {
         this.contato = contato;
     }
 
+    /**
+     *
+     * @return cpf do morador
+     */
     public String getCpf() {
         return cpf;
     }
 
+    /**
+     *
+     * @param cpf
+     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
+    /**
+     *
+     * @return quanto o morador deve para a casa
+     */
     public String getSaldoDevedor() {
         return saldoDevedor;
     }
 
+    /**
+     *
+     * @param saldoDevedor
+     */
     public void setSaldoDevedor(String saldoDevedor) {
         this.saldoDevedor = saldoDevedor;
     }
 
+    /**
+     *
+     * @return aluguel ou valor determinado para temporarios
+     */
     public String getValorFixo() {
         return valorFixo;
     }
 
+    /**
+     *
+     * @param valorFixo
+     */
     public void setValorFixo(String valorFixo) {
         this.valorFixo = valorFixo;
     }
-    
-    public void cadastrarMorador(){
-        
+
+    /**
+     *responsavel por cadastrar um novo morador
+     */
+    public void cadastrarMorador() {
+
     }
-    public void listarMoradores(){
-        //lista todos os moradores com seus atributos
+
+    /**
+     * lista todos os moradores com seus atributos
+     */
+    public void listarMoradores() {
     }
-    public void mvAntigosMoradores(){
-        
+
+    /**
+     * coloca moradores exlcuidos em moradores antigos
+     */
+    public void mvAntigosMoradores() {
+
     }
-    
-  /**
-   * 
-   * @param valorFixo
-   * @return Valor do aluguel mais as contas do mês
-   */
-    public float totalPagar(String valorFixo){
+
+    /**
+     *
+     * @param valorFixo
+     * @return Valor do aluguel mais as contas do mês
+     */
+    public float totalPagar(String valorFixo) {
         float contas = 0;
         int valor = Integer.parseInt(valorFixo);
-        return valor+contas;
-    
+        return valor + contas;
+
     }
 
 }

@@ -26,12 +26,21 @@ public class Casa {
         this.allMoradoresTemp = allMoradoresTemp;
         this.allContas = allContas;
     }*/
-    public Casa(){
+    /**
+     * Cria um objeto vazio passando null para todos parametros
+     */
+    public Casa() {
         qtdMoradores = null;
         vagasPerm = null;
         vagasTemp = null;
     }
-    
+
+    /**
+     *
+     * @param qtdMoradores quantiadde de moradores atuais morando na casa
+     * @param vagasPerm vagas disponiveis permanentes na casa
+     * @param vagasTemp vagas disponiveis temporarias na casa
+     */
     public Casa(String qtdMoradores, String vagasPerm, String vagasTemp) {
 
         setQtdMoradores(qtdMoradores);
@@ -40,26 +49,50 @@ public class Casa {
 
     }
 
+    /**
+     *
+     * @return a quantidade de moradores
+     */
     public String getQtdMoradores() {
         return qtdMoradores;
     }
 
+    /**
+     *
+     * @param qtdMoradores
+     */
     public void setQtdMoradores(String qtdMoradores) {
         this.qtdMoradores = qtdMoradores;
     }
 
+    /**
+     *
+     * @return quantas vagas permanentes existem
+     */
     public String getVagasPerm() {
         return vagasPerm;
     }
 
+    /**
+     *
+     * @param vagasPerm
+     */
     public void setVagasPerm(String vagasPerm) {
         this.vagasPerm = vagasPerm;
     }
 
+    /**
+     *
+     * @return quantas vagas temporarias existem
+     */
     public String getVagasTemp() {
         return vagasTemp;
     }
 
+    /**
+     *
+     * @param vagasTemp
+     */
     public void setVagasTemp(String vagasTemp) {
         this.vagasTemp = vagasTemp;
     }

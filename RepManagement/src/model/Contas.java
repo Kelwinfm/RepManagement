@@ -8,103 +8,137 @@ package model;
 
 import control.Arquivos;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
  * Sub classe de Despesas em que mostra o tipo de conta e o status da mesma
+ *
  * @author kelwin
  */
-public class Contas extends Despesas implements Arquivos, Serializable{
+public class Contas extends Despesas implements Arquivos, Serializable {
+
     private String tipo;
     private boolean pago;
 
     /**
-     * Constrói objeto Contas, inicializando informações sobre uma conta nova inserida.
+     * Cria um objeto vazio passando null para todos parametros
      */
-    
+    public Contas() {
+        super();
+        tipo = null;
+        pago = true;
+    }
+
     /**
+     * Constrói objeto Contas, inicializando informações sobre uma conta nova
+     * inserida.
      *
      * @param mes
      * @param ano
      * @param valor
      * @param dataVenc
      * @param tipo Tipo de conta a ser inserida (EX: Agua,luz,internet)
-     * @param pago Pode receber True se tiver sido paga ou False se ainda nao foi paga
+     * @param pago Pode receber True se tiver sido paga ou False se ainda nao
+     * foi paga
      */
-    public Contas(){
-        super();
-        tipo = null;
-        pago = true;
-    }
-    public Contas(String mes, String ano, String valor, String dataVenc,String tipo, boolean pago){
+    public Contas(String mes, String ano, String valor, String dataVenc, String tipo, boolean pago) {
         super(mes, ano, valor, dataVenc);
         setTipo(tipo);
         setPago(true);
     }
+
     /*public Contas(int mes, int ano, float valor, String dataVenc, String tipo, boolean pago) {
         super(mes, ano, valor, dataVenc);
         this.tipo = tipo;
         this.pago = pago;
     }*/
-    
+    /**
+     *
+     * @return
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     *
+     * @param tipo
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isPago() {
         return true;
     }
 
+    /**
+     *
+     * @param pago
+     */
     public void setPago(boolean pago) {
         this.pago = true;
     }
-    
-     /**
+
+    /**
      * Colocar todos os dados das contas pagas em um unico arquivo com os totais
      */
-    public void gerarRelatorio(){
-        
-    }
-    public void consultarRelatorio(){
-        
+    public void gerarRelatorio() {
+
     }
 
+    /**
+     *
+     */
+    public void consultarRelatorio() {
+
+    }
+
+    /**
+     *
+     * @return string de nome ao salvar o arquivo
+     */
     @Override
     public String ArquivoNome() {
-        String s = DiretorioNome() + "Conta_" + this.getTipo() + "_"+ this.getMes()+ "_" + this.getAno()+ ".Conta";
+        String s = DiretorioNome() + "Conta_" + this.getTipo() + "_" + this.getMes() + "_" + this.getAno() + ".Conta";
         return s;
     }
 
+    /**
+     *
+     * @return string com nome ao salvar diretorio
+     */
     @Override
     public String DiretorioNome() {
         String s = "Arquivos" + File.separator + "Contas" + File.separator;
-        return s; 
+        return s;
     }
+
+    /**
+     * salva um objeto em um arquivo
+     */
     @Override
     public void Save() {
-               File arquivo = new File(this.ArquivoNome());
+        File arquivo = new File(this.ArquivoNome());
         if (!arquivo.exists()) {
             arquivo.getParentFile().mkdirs();
-                   try {
-                       arquivo.createNewFile();
-                   } catch (IOException ex) {
-                       Logger.getLogger(Contas.class.getName()).log(Level.SEVERE, null, ex);
-                   }
+            try {
+                arquivo.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(Contas.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         FileOutputStream arquivoS = null;
@@ -122,9 +156,15 @@ public class Contas extends Despesas implements Arquivos, Serializable{
         } catch (IOException ex) {
             Logger.getLogger(Contas.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
+
     }
-        @Override
+
+    /**
+     *
+     * @param nome do arquivo a ser puxado
+     * @return o arquivo puxado em um objeto na memoria
+     */
+    @Override
     public Contas Load(String nome) {
         File arquivo = new File(DiretorioNome() + nome);
         Contas t = null;
@@ -137,8 +177,13 @@ public class Contas extends Despesas implements Arquivos, Serializable{
             return t;
         }
     }
-       @Override
-    public  ArrayList<Contas> LoadAll() {
+
+    /**
+     *
+     * @return um array de todos os arquivos de certo tipo
+     */
+    @Override
+    public ArrayList<Contas> LoadAll() {
         ArrayList<Contas> t = null;
 
         try {
@@ -149,7 +194,4 @@ public class Contas extends Despesas implements Arquivos, Serializable{
             return t;
         }
     }
-
-
-    
 }

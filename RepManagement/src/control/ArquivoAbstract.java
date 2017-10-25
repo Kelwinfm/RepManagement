@@ -11,22 +11,33 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import model.Contas;
 
 /**
  *
- * @author kelwi
+ * @author kelwin
  */
-public abstract class ArquivoAbstract implements Arquivos{
-    
+public abstract class ArquivoAbstract implements Arquivos {
+
+    /**
+     *Remove um arquivo selecionado da persistencia
+     */
     @Override
     public void Remove() {
-         File arquivo = new File(ArquivoNome());
+        File arquivo = new File(ArquivoNome());
         if (arquivo.exists()) {
             arquivo.delete();
-        }    
+        }
     }
-    
+
+    /**
+     *
+     * @param <T>
+     * @param arquivo selecionado para ser carregado na memoria
+     * @return um arquivo na memoria
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     protected <T> T LoadFile(File arquivo) throws FileNotFoundException, IOException, ClassNotFoundException {
         T t;
 
@@ -38,8 +49,17 @@ public abstract class ArquivoAbstract implements Arquivos{
 
         return t;
     }
-    
-     protected <T> ArrayList<T> LoadAllFiles() throws IOException, FileNotFoundException, ClassNotFoundException, IllegalArgumentException {
+
+    /**
+     *
+     * @param <T> nome generico para um objeto a ser carregado
+     * @return um array de arquivos de mesmo tipo
+     * @throws IOException
+     * @throws FileNotFoundException
+     * @throws ClassNotFoundException
+     * @throws IllegalArgumentException
+     */
+    protected <T> ArrayList<T> LoadAllFiles() throws IOException, FileNotFoundException, ClassNotFoundException, IllegalArgumentException {
         ArrayList<T> objetos = new ArrayList<T>();
         File diretorio = new File(DiretorioNome());
         File[] arquivos = diretorio.listFiles();

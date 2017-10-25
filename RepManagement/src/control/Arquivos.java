@@ -11,7 +11,9 @@ import java.util.ArrayList;
 /**
  *
  * @author kelwin
+ * interface para implementação de gerenciamento de arquivos
  */
+
 public interface Arquivos {
     abstract String ArquivoNome();
     abstract String DiretorioNome();

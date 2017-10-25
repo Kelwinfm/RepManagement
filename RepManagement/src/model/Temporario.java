@@ -22,80 +22,99 @@ import java.util.logging.Logger;
  * @author kelwin
  * @see Moradores
  */
-public class Temporario extends Moradores implements Arquivos, Serializable{
+public class Temporario extends Moradores implements Arquivos, Serializable {
+
     private String periodo;
-    
-     /**
-     * Constrói objeto de um morador temporario, inicializando informações 
-     * sobre um novo morador temporario inserido.
-     */
-    
+
     /**
+     * Cria um objeto vazio passando null para todos parametros
+     */
+    public Temporario() {
+        super();
+        periodo = null;
+    }
+
+    /**
+     * Constrói objeto de um morador temporario, inicializando informações sobre
+     * um novo morador temporario inserido.
      *
      * @param nome
      * @param contato
      * @param cpf
      * @param saldoDevedor Valor devido pelo morador das contas ou valorFixo
      * @param valorFixo Valor definido semanalmente pelo Moradores permanentes
-     * @param periodoMinimo Periodo de tempo em que o morador temporario ficará na casa
+     * @param periodo Periodo de tempo em que o morador temporario ficará na
+     * casa
      */
-    public Temporario(){
-        super();
-        periodo = null;
-    }
-    public Temporario(String nome, String contato, String cpf, String saldoDevedor,String valorFixo, String periodo){
+    public Temporario(String nome, String contato, String cpf, String saldoDevedor, String valorFixo, String periodo) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);
         setPeriodo(periodo);
 
     }
-    /*public Temporario(String nome, String contato, String cpf, float saldoDevedor,float valorFixo,int periodoMinimo) {
-       super(nome, contato, cpf, saldoDevedor, valorFixo);
-       this.periodo = periodoMinimo;
 
-    }*/
+    /**
+     *
+     * @return o periodo que a pessoa pretende ficar na casa
+     */
     public String getPeriodo() {
         return periodo;
     }
+
+    /**
+     *
+     * @param periodo
+     */
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-    
+
     /**
-     * 
+     *
      * @param valorFixo
      * @return Valor do periodo de estadia * um valor pré definido
      */
-    
-    @Override 
-    public float totalPagar(String valorFixo){
+    @Override
+    public float totalPagar(String valorFixo) {
         float contas = 0;
         int valor = Integer.parseInt(valorFixo);
         int tempo = Integer.parseInt(getPeriodo());
-        return (tempo*valor)+contas;
-        
+        return (tempo * valor) + contas;
+
     }
 
+    /**
+     *
+     * @return string de nome ao salvar o arquivo
+     */
     @Override
     public String ArquivoNome() {
         String s = DiretorioNome() + "Morador_Temporario_" + this.getNome() + ".Temp";
         return s;
     }
 
+    /**
+     *
+     * @return string com nome ao salvar diretorio
+     */
     @Override
     public String DiretorioNome() {
         String s = "Arquivos" + File.separator + "Morador_Temporario" + File.separator;
-        return s; 
+        return s;
     }
+
+    /**
+     * salva um objeto em um arquivo
+     */
     @Override
     public void Save() {
-               File arquivo = new File(this.ArquivoNome());
+        File arquivo = new File(this.ArquivoNome());
         if (!arquivo.exists()) {
             arquivo.getParentFile().mkdirs();
-                   try {
-                       arquivo.createNewFile();
-                   } catch (IOException ex) {
-                       Logger.getLogger(Temporario.class.getName()).log(Level.SEVERE, null, ex);
-                   }
+            try {
+                arquivo.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(Temporario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         FileOutputStream arquivoS = null;
@@ -113,9 +132,15 @@ public class Temporario extends Moradores implements Arquivos, Serializable{
         } catch (IOException ex) {
             Logger.getLogger(Temporario.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
+
     }
-           @Override
+
+    /**
+     *
+     * @param nome do arquivo a ser puxado
+     * @return o arquivo puxado em um objeto na memoria
+     */
+    @Override
     public Temporario Load(String nome) {
         File arquivo = new File(DiretorioNome() + nome);
         Temporario t = null;
@@ -128,8 +153,13 @@ public class Temporario extends Moradores implements Arquivos, Serializable{
             return t;
         }
     }
-       @Override
-    public  ArrayList<Temporario> LoadAll() {
+
+    /**
+     *
+     * @return um array de todos os arquivos de certo tipo
+     */
+    @Override
+    public ArrayList<Temporario> LoadAll() {
         ArrayList<Temporario> t = null;
 
         try {

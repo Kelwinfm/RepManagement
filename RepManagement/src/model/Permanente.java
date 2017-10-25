@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,16 +22,23 @@ import java.util.logging.Logger;
  * @author kelwin
  * @see Moradores
  */
-public class Permanente extends Moradores implements Arquivos, Serializable{
-    private  String dataEntrada;
-    private  String rg;
-    
-     /**
-     * Constrói objeto de um morador permanente, inicializando informações 
-     * sobre um novo morador permanente inserido.
+public class Permanente extends Moradores implements Arquivos, Serializable {
+
+    private String dataEntrada;
+    private String rg;
+
+    /**
+     * Cria um objeto vazio passando null para todos parametros
      */
-    
- /**
+    public Permanente() {
+        super();
+        rg = null;
+        dataEntrada = null;
+    }
+
+    /**
+     * Constrói objeto de um morador permanente, inicializando informações sobre
+     * um novo morador permanente inserido.
      *
      * @param nome
      * @param contato
@@ -40,62 +46,84 @@ public class Permanente extends Moradores implements Arquivos, Serializable{
      * @param dataEntrada Data da entrada do morador permanente na casa
      * @param valorFixo
      * @param rg RG do morador permanente
-     * @param saldoDevedor 
+     * @param saldoDevedor
      */
-    public Permanente(){
-        super();
-        rg = null;
-        dataEntrada = null;
-    }
-    public Permanente(String nome, String contato, String cpf, String saldoDevedor,String valorFixo, String dataEntrada,String rg){
+    public Permanente(String nome, String contato, String cpf, String saldoDevedor, String valorFixo, String dataEntrada, String rg) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);
         setRg(rg);
         setDataEntrada(dataEntrada);
     }
-    
+
     /*public Permanente(String nome, String contato, String cpf, float saldoDevedor,float valorFixo, String dataEntrada,String rg) {
         super(nome, contato, cpf, saldoDevedor, valorFixo);
         this.dataEntrada = dataEntrada;
         this.rg = rg;
     }*/
-
+    /**
+     *
+     * @return
+     */
     public String getDataEntrada() {
         return dataEntrada;
     }
 
+    /**
+     *
+     * @param dataEntrada
+     */
     public void setDataEntrada(String dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRg() {
         return rg;
     }
 
+    /**
+     *
+     * @param rg
+     */
     public void setRg(String rg) {
         this.rg = rg;
     }
 
+    /**
+     *
+     * @return string de nome ao salvar o arquivo
+     */
     @Override
     public String ArquivoNome() {
         String s = DiretorioNome() + "Morador_Permanente_" + this.getNome() + ".Perm";
         return s;
     }
 
+    /**
+     *
+     * @return string com nome ao salvar diretorio
+     */
     @Override
     public String DiretorioNome() {
         String s = "Arquivos" + File.separator + "Morador_Permanente" + File.separator;
-        return s; 
+        return s;
     }
+
+    /**
+     * salva um objeto em um arquivo
+     */
     @Override
     public void Save() {
-               File arquivo = new File(this.ArquivoNome());
+        File arquivo = new File(this.ArquivoNome());
         if (!arquivo.exists()) {
             arquivo.getParentFile().mkdirs();
-                   try {
-                       arquivo.createNewFile();
-                   } catch (IOException ex) {
-                       Logger.getLogger(Permanente.class.getName()).log(Level.SEVERE, null, ex);
-                   }
+            try {
+                arquivo.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(Permanente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         FileOutputStream arquivoS = null;
@@ -113,9 +141,15 @@ public class Permanente extends Moradores implements Arquivos, Serializable{
         } catch (IOException ex) {
             Logger.getLogger(Permanente.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
+
     }
-           @Override
+
+    /**
+     *
+     * @param nome do arquivo a ser puxado
+     * @return o arquivo puxado em um objeto na memoria
+     */
+    @Override
     public Permanente Load(String nome) {
         File arquivo = new File(DiretorioNome() + nome);
         Permanente t = null;
@@ -128,8 +162,13 @@ public class Permanente extends Moradores implements Arquivos, Serializable{
             return t;
         }
     }
-       @Override
-    public  ArrayList<Permanente> LoadAll() {
+
+    /**
+     *
+     * @return um array de todos os arquivos de certo tipo
+     */
+    @Override
+    public ArrayList<Permanente> LoadAll() {
         ArrayList<Permanente> t = null;
 
         try {
