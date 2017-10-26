@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="RepManagement">
+  <ClassDiagramComponents>
+    <Class name="ArquivoAbstract" package="control" visibility="public" isAbstract="true" xPosition="1150.0" yPosition="91.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Remove" returnType="void" visibility="public"/>
+        <Method name="LoadFile" returnType="T" visibility="protected">
+          <Argument type="File" name="arquivo"/>
+        </Method>
+        <Method name="LoadAllFiles" returnType="ArrayList&lt;T&gt;" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="RepManagement" package="main" visibility="public" xPosition="2318.0" yPosition="1120.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Caixinha" package="model" visibility="public" xPosition="2305.0" yPosition="530.0">
+      <Fields>
+        <Field name="montante" type="String" visibility="private"/>
+        <Field name="valorIndividual" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="mes"/>
+          <Argument type="String" name="ano"/>
+          <Argument type="String" name="valor"/>
+          <Argument type="String" name="dataVenc"/>
+          <Argument type="String" name="montante"/>
+          <Argument type="String" name="valorIndividual"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMontante" returnType="String" visibility="public"/>
+        <Method name="setMontante" returnType="void" visibility="public">
+          <Argument type="String" name="montante"/>
+        </Method>
+        <Method name="getValorIndividual" returnType="String" visibility="public"/>
+        <Method name="setValorIndividual" returnType="void" visibility="public">
+          <Argument type="String" name="valorIndividual"/>
+        </Method>
+        <Method name="creditarValor" returnType="void" visibility="public"/>
+        <Method name="debitarValor" returnType="void" visibility="public"/>
+        <Method name="gerarLog" returnType="void" visibility="public"/>
+        <Method name="ArquivoNome" returnType="String" visibility="public"/>
+        <Method name="DiretorioNome" returnType="String" visibility="public"/>
+        <Method name="Save" returnType="void" visibility="public"/>
+        <Method name="Load" returnType="Caixinha" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="LoadAll" returnType="ArrayList&lt;Caixinha&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Casa" package="model" visibility="public" xPosition="385.0" yPosition="31.0">
+      <Fields>
+        <Field name="qtdMoradores" type="String" visibility="private"/>
+        <Field name="vagasPerm" type="String" visibility="private"/>
+        <Field name="vagasTemp" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="qtdMoradores"/>
+          <Argument type="String" name="vagasPerm"/>
+          <Argument type="String" name="vagasTemp"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getQtdMoradores" returnType="String" visibility="public"/>
+        <Method name="setQtdMoradores" returnType="void" visibility="public">
+          <Argument type="String" name="qtdMoradores"/>
+        </Method>
+        <Method name="getVagasPerm" returnType="String" visibility="public"/>
+        <Method name="setVagasPerm" returnType="void" visibility="public">
+          <Argument type="String" name="vagasPerm"/>
+        </Method>
+        <Method name="getVagasTemp" returnType="String" visibility="public"/>
+        <Method name="setVagasTemp" returnType="void" visibility="public">
+          <Argument type="String" name="vagasTemp"/>
+        </Method>
+        <Method name="calcularContas" returnType="float" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Contas" package="model" visibility="public" xPosition="1613.0" yPosition="752.0">
+      <Fields>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="pago" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="mes"/>
+          <Argument type="String" name="ano"/>
+          <Argument type="String" name="valor"/>
+          <Argument type="String" name="dataVenc"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="boolean" name="pago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="isPago" returnType="boolean" visibility="public"/>
+        <Method name="setPago" returnType="void" visibility="public">
+          <Argument type="boolean" name="pago"/>
+        </Method>
+        <Method name="gerarRelatorio" returnType="void" visibility="public"/>
+        <Method name="consultarRelatorio" returnType="void" visibility="public"/>
+        <Method name="ArquivoNome" returnType="String" visibility="public"/>
+        <Method name="DiretorioNome" returnType="String" visibility="public"/>
+        <Method name="Save" returnType="void" visibility="public"/>
+        <Method name="Load" returnType="Contas" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="LoadAll" returnType="ArrayList&lt;Contas&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Despesas" package="model" visibility="public" isAbstract="true" xPosition="1751.0" yPosition="31.0">
+      <Fields>
+        <Field name="mes" type="String" visibility="protected"/>
+        <Field name="ano" type="String" visibility="protected"/>
+        <Field name="valor" type="String" visibility="protected"/>
+        <Field name="dataVenc" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="mes"/>
+          <Argument type="String" name="ano"/>
+          <Argument type="String" name="valor"/>
+          <Argument type="String" name="dataVenc"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMes" returnType="String" visibility="public"/>
+        <Method name="setMes" returnType="void" visibility="public">
+          <Argument type="String" name="mes"/>
+        </Method>
+        <Method name="getAno" returnType="String" visibility="public"/>
+        <Method name="setAno" returnType="void" visibility="public">
+          <Argument type="String" name="ano"/>
+        </Method>
+        <Method name="getValor" returnType="String" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="String" name="valor"/>
+        </Method>
+        <Method name="getDataVenc" returnType="String" visibility="public"/>
+        <Method name="setDataVenc" returnType="void" visibility="public">
+          <Argument type="String" name="dataVenc"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Moradores" package="model" visibility="public" isAbstract="true" xPosition="325.0" yPosition="446.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="protected"/>
+        <Field name="contato" type="String" visibility="protected"/>
+        <Field name="cpf" type="String" visibility="protected"/>
+        <Field name="saldoDevedor" type="String" visibility="protected"/>
+        <Field name="valorFixo" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="contato"/>
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="saldoDevedor"/>
+          <Argument type="String" name="valorFixo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getContato" returnType="String" visibility="public"/>
+        <Method name="setContato" returnType="void" visibility="public">
+          <Argument type="String" name="contato"/>
+        </Method>
+        <Method name="getCpf" returnType="String" visibility="public"/>
+        <Method name="setCpf" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="getSaldoDevedor" returnType="String" visibility="public"/>
+        <Method name="setSaldoDevedor" returnType="void" visibility="public">
+          <Argument type="String" name="saldoDevedor"/>
+        </Method>
+        <Method name="getValorFixo" returnType="String" visibility="public"/>
+        <Method name="setValorFixo" returnType="void" visibility="public">
+          <Argument type="String" name="valorFixo"/>
+        </Method>
+        <Method name="cadastrarMorador" returnType="void" visibility="public"/>
+        <Method name="listarMoradores" returnType="void" visibility="public"/>
+        <Method name="mvAntigosMoradores" returnType="void" visibility="public"/>
+        <Method name="totalPagar" returnType="float" visibility="public">
+          <Argument type="String" name="valorFixo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Permanente" package="model" visibility="public" xPosition="45.0" yPosition="1012.0">
+      <Fields>
+        <Field name="dataEntrada" type="String" visibility="private"/>
+        <Field name="rg" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="contato"/>
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="saldoDevedor"/>
+          <Argument type="String" name="valorFixo"/>
+          <Argument type="String" name="dataEntrada"/>
+          <Argument type="String" name="rg"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDataEntrada" returnType="String" visibility="public"/>
+        <Method name="setDataEntrada" returnType="void" visibility="public">
+          <Argument type="String" name="dataEntrada"/>
+        </Method>
+        <Method name="getRg" returnType="String" visibility="public"/>
+        <Method name="setRg" returnType="void" visibility="public">
+          <Argument type="String" name="rg"/>
+        </Method>
+        <Method name="ArquivoNome" returnType="String" visibility="public"/>
+        <Method name="DiretorioNome" returnType="String" visibility="public"/>
+        <Method name="Save" returnType="void" visibility="public"/>
+        <Method name="Load" returnType="Permanente" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="LoadAll" returnType="ArrayList&lt;Permanente&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Temporario" package="model" visibility="public" xPosition="884.0" yPosition="1083.0">
+      <Fields>
+        <Field name="periodo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="contato"/>
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="saldoDevedor"/>
+          <Argument type="String" name="valorFixo"/>
+          <Argument type="String" name="periodo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPeriodo" returnType="String" visibility="public"/>
+        <Method name="setPeriodo" returnType="void" visibility="public">
+          <Argument type="String" name="periodo"/>
+        </Method>
+        <Method name="totalPagar" returnType="float" visibility="public">
+          <Argument type="String" name="valorFixo"/>
+        </Method>
+        <Method name="ArquivoNome" returnType="String" visibility="public"/>
+        <Method name="DiretorioNome" returnType="String" visibility="public"/>
+        <Method name="Save" returnType="void" visibility="public"/>
+        <Method name="Load" returnType="Temporario" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="LoadAll" returnType="ArrayList&lt;Temporario&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AlterarCaixinha" package="view" visibility="public" xPosition="744.0" yPosition="1592.0">
+      <Fields>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField3" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jTextField3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CadastroContas" package="view" visibility="public" xPosition="765.0" yPosition="2024.0">
+      <Fields>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField3" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField4" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CadastroMoradorPerma" package="view" visibility="public" xPosition="2294.0" yPosition="1716.0">
+      <Fields>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField3" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField4" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField5" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTextField1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTextField3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CadastroMoradorTemp" package="view" visibility="public" xPosition="1504.0" yPosition="1641.0">
+      <Fields>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField3" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField4" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jTextField1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConsultarMorador" package="view" visibility="public" xPosition="1563.0" yPosition="2138.0">
+      <Fields>
+        <Field name="LBConMorador" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="TXTConMorador" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="formWindowActivated" returnType="void" visibility="private">
+          <Argument type="java.awt.event.WindowEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuPrincipal" package="view" visibility="public" xPosition="11.0" yPosition="1592.0">
+      <Fields>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenu1" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenu2" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenu3" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenu4" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenu6" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="jMenuExit" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenuHelp" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenuItem1" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem10" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem11" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem12" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem13" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem2" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem3" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem4" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem5" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem6" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem7" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem8" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuItem9" type="javax.swing.JMenuItem" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jMenuItem4ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuItem5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuItem6ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuItem9ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuExitActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuExitMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuItem12ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMenuItem13ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Arquivos" package="control" visibility="public" xPosition="1150.0" yPosition="530.0">
+      <Methods>
+        <Method name="ArquivoNome" returnType="String" visibility="package" isAbstract="true"/>
+        <Method name="DiretorioNome" returnType="String" visibility="package" isAbstract="true"/>
+        <Method name="LoadAll" returnType="ArrayList&lt;T&gt;" visibility="public" isAbstract="true"/>
+        <Method name="Load" returnType="T" visibility="public" isAbstract="true">
+          <Argument type="String" name="f"/>
+        </Method>
+        <Method name="Save" returnType="void" visibility="public"/>
+        <Method name="Remove" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="model.Despesas" target="control.ArquivoAbstract"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Caixinha" target="control.Arquivos"/>
+    <IsRelation name="is" source="model.Permanente" target="model.Moradores"/>
+    <UseRelation source="model.Caixinha" target="model.Caixinha" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.Contas" target="model.Contas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="model.Moradores" target="control.ArquivoAbstract"/>
+    <IsRelation name="is" source="model.Contas" target="model.Despesas"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Contas" target="control.Arquivos"/>
+    <IsRelation name="is" source="model.Temporario" target="model.Moradores"/>
+    <IsRelation name="is" source="model.Caixinha" target="model.Despesas"/>
+    <UseRelation source="model.Temporario" target="model.Temporario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="model.Permanente" target="model.Permanente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Temporario" target="control.Arquivos"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Permanente" target="control.Arquivos"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.ArquivoAbstract" target="control.Arquivos"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
