@@ -196,7 +196,11 @@ public class Contas extends Despesas implements Arquivos, Serializable {
     }
     
      public ArrayList<Contas> contass = new ArrayList<>();//array list de contas
-    
+     
+        public void inserirConta(Contas C){
+        contass.add(C);
+        C.Save();        
+    }
         
     public void CarregarContas() throws IllegalArgumentException, IOException {
         Contas contas = new Contas();

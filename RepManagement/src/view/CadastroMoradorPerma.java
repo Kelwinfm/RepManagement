@@ -71,6 +71,18 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
 
         jLabel2.setText("Contato");
 
+        jtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNomeActionPerformed(evt);
+            }
+        });
+
+        jtContato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtContatoActionPerformed(evt);
+            }
+        });
+
         jbSair.setText("Cancelar");
         jbSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,16 +90,34 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Cadastro de Moradores Permanentes");
 
         jLabel4.setText("RG");
 
+        jtRg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtRgActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("CPF");
+
+        jtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDataActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Data de entrada");
 
         jLabel7.setText("Valor Fixo");
+
+        jtValorFixo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtValorFixoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,6 +206,26 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
         CadastroMoradorPerma.this.dispose();
         
     }//GEN-LAST:event_jbSairActionPerformed
+
+    private void jtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDataActionPerformed
+
+    private void jtValorFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorFixoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtValorFixoActionPerformed
+
+    private void jtRgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtRgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtRgActionPerformed
+
+    private void jtContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtContatoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtContatoActionPerformed
+
+    private void jtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNomeActionPerformed
 
     /**
      * @param args the command line arguments
