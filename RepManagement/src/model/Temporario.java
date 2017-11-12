@@ -170,4 +170,37 @@ public class Temporario extends Moradores implements Arquivos, Serializable {
             return t;
         }
     }
+    public ArrayList<Temporario> temporarios = new ArrayList<>();//array list de moradores temporarios
+    
+        public void cadastrarMoradorTemp(Temporario T){
+        temporarios.add(T);
+        T.Save();        
+    }
+        
+    public void CarregarTemporario() throws IllegalArgumentException, IOException {
+        Temporario temporario = new Temporario();
+
+        for (Temporario t : temporario.LoadAll()) {
+            this.temporarios.add(t);
+        }
+    }
+
+    public Temporario ConsultarTemporario(String cpf) {
+
+        for (Temporario temporario : temporarios) {
+            if (temporario.getCpf().compareToIgnoreCase(cpf) == 0) {
+                return temporario;
+            }
+        }
+        return null;
+    }
+
+    public synchronized boolean RemoverTemporario(String rg) {//garantir a sincronia com a trheads
+        Temporario temporario = ConsultarTemporario(rg);
+        if (temporario != null) {
+            temporario.Remove();
+            return true;
+        }
+        return false;
+    }
 }

@@ -18,36 +18,7 @@ import model.Permanente;
  */
 public class CadastroMoradorPerma extends javax.swing.JFrame {
     
-        public ArrayList<Permanente> permanentes = new ArrayList<>();//array list de moradores permanentes
-    
         
-    public void CarregarPermanente() throws IllegalArgumentException, IOException {
-        Permanente permanente = new Permanente();
-
-        for (Permanente p : permanente.LoadAll()) {
-            this.permanentes.add(p);
-        }
-    }
-
-    public Permanente ConsultarPermanente(String rg) {
-
-        for (Permanente permanente : permanentes) {
-            if (permanente.getRg().compareToIgnoreCase(rg) == 0) {
-                return permanente;
-            }
-        JOptionPane.showMessageDialog(rootPane, ("Não foi Possivel encontrar o Cliente com o CPF: " + rg));
-        }
-        return null;
-    }
-
-    public synchronized boolean RemoverPermanente(String rg) {//garantir a sincronia com a trheads
-        Permanente permanente = ConsultarPermanente(rg);
-        if (permanente != null) {
-            permanente.Remove();
-            return true;
-        }
-        return false;
-    }
     
     public void limpar() {
         jtNome.setText(null);
@@ -196,8 +167,7 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
         // TODO add your handling code here:
         Permanente P = new Permanente(jtNome.getText(), jtContato.getText(), jtCpf.getText(),"0",jtValorFixo.getText(),jtRg.getText(), jtData.getText());
         limpar();
-        permanentes.add(P);
-        P.Save();
+        P.cadastrarMoradorPerm(P);
         JOptionPane.showMessageDialog(rootPane, "Novo Morador Cadastrado com Sucesso");
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
