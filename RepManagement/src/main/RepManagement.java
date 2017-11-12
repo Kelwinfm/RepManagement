@@ -20,14 +20,14 @@ import view.MenuPrincipal;
 public class RepManagement {
 
     public static void main(String[] args) {
-        //MenuPrincipal addMenu = new MenuPrincipal();
-        // addMenu.setVisible(true);
-        Contas conta = new Contas("10","2017","80.67", "23/10/2017","Agua",true);
+        MenuPrincipal addMenu = new MenuPrincipal();
+         addMenu.setVisible(true);
+        /*Contas conta = new Contas("10","2017","80.67", "23/10/2017","Agua",true);
         conta.Save();
        System.out.println("Conta salva");
         Permanente perm = new Permanente("Risolis","(11)98423473","34326566-52","0", "220.00","01/03/2017","435554645");
         perm.Save();
-        System.out.println("Moradores salvos");
+        System.out.println("Moradores salvos");*/
 
 
         }

@@ -119,6 +119,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem9);
 
         jMenuItem14.setText("Casa");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem14);
 
         jMenuBar1.add(jMenu4);
@@ -223,6 +228,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadastroMoradorTemp addMorador = new CadastroMoradorTemp();
             addMorador.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        TelaCasa casa = new TelaCasa();
+        new TelaCasa().setVisible(true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -77,7 +77,7 @@
                           <Component id="jTStatus" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="checkbox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="cKeditar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -89,12 +89,12 @@
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTStatus" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="checkbox2" min="-2" max="-2" attributes="0"/>
+                  <Component id="cKeditar" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTMoradores" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -169,10 +169,13 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Checkbox" name="checkbox2">
+    <Component class="java.awt.Checkbox" name="cKeditar">
       <Properties>
         <Property name="label" type="java.lang.String" value="Editar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cKeditarMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
