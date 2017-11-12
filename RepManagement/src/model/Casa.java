@@ -6,11 +6,14 @@
  */
 package model;
 
+import control.ArquivoAbstract;
+import control.Arquivos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,11 +22,12 @@ import java.util.logging.Logger;
  *
  * @author kelwin
  */
-public class Casa {
+public abstract class Casa extends ArquivoAbstract {
 
     private String qtdMoradores;
     private String vagasPerm;
     private String vagasTemp;
+    private String nome;
 
     /*public Casa(int qtdMoradores, int vagasPerm, int vagasTemp, ArrayList<Permanente> allMoradoresPerm, ArrayList<Temporario> allMoradoresTemp, ArrayList<Contas> allContas) {
         this.qtdMoradores = qtdMoradores;
@@ -115,90 +119,18 @@ public class Casa {
         return total;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
 }
 
-   @Override
-    public String ArquivoNome() {
-        String s = DiretorioNome() + "Morador_Permanente_" + this.getNome() + ".Perm";
-        return s;
-    }
 
-    /**
-     *
-     * @return string com nome ao salvar diretorio
-     */
-    @Override
-    public String DiretorioNome() {
-        String s = "Arquivos" + File.separator + "Morador_Permanente" + File.separator;
-        return s;
-    }
 
-    /**
-     * salva um objeto em um arquivo
-     */
-    @Override
-    public void Save() {
-        File arquivo = new File(this.ArquivoNome());
-        if (!arquivo.exists()) {
-            arquivo.getParentFile().mkdirs();
-            try {
-                arquivo.createNewFile();
-            } catch (IOException ex) {
-                Logger.getLogger(Casa.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
 
-        FileOutputStream arquivoS = null;
-        try {
-            arquivoS = new FileOutputStream(arquivo);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Casa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ObjectOutputStream saida = null;
-        try {
-            saida = new ObjectOutputStream(arquivoS);
-            saida.writeObject(this);
-            saida.close();
-            arquivoS.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Casa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    /**
-     *
-     * @param nome do arquivo a ser puxado
-     * @return o arquivo puxado em um objeto na memoria
-     */
-    @Override
-    public Casa Load(String nome) {
-        File arquivo = new File(DiretorioNome() + nome);
-        Casa t = null;
-
-        try {
-            t = LoadFile(arquivo);
-        } catch (ClassNotFoundException ex) {
-            throw ex;
-        } finally {
-            return t;
-        }
-    }
-
-    /**
-     *
-     * @return um array de todos os arquivos de certo tipo
-     */
-    @Override
-    public ArrayList<Casa> LoadAll() {
-        ArrayList<Casa> t = null;
-
-        try {
-            t = LoadAllFiles();
-        } catch (ClassNotFoundException ex) {
-            throw ex;
-        } finally {
-            return t;
-        }
-    }
-}
+  
