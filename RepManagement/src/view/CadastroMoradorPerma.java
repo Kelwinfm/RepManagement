@@ -48,17 +48,17 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtNome = new javax.swing.JTextField();
-        jtContato = new javax.swing.JTextField();
         jbSair = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtRg = new javax.swing.JTextField();
-        jtCpf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jtData = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jtValorFixo = new javax.swing.JTextField();
+        jtRg = new javax.swing.JFormattedTextField();
+        jtCpf = new javax.swing.JFormattedTextField();
+        jtData = new javax.swing.JFormattedTextField();
+        jtValorFixo = new javax.swing.JFormattedTextField();
+        jtContato = new javax.swing.JFormattedTextField();
 
         jbCadastrar.setText("Cadastrar");
         jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,12 +77,6 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
             }
         });
 
-        jtContato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtContatoActionPerformed(evt);
-            }
-        });
-
         jbSair.setText("Cancelar");
         jbSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,29 +89,41 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
 
         jLabel4.setText("RG");
 
-        jtRg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtRgActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("CPF");
-
-        jtData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtDataActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Data de entrada");
 
         jLabel7.setText("Valor Fixo");
 
-        jtValorFixo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtValorFixoActionPerformed(evt);
-            }
-        });
+        try {
+            jtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtValorFixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ####,##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtContato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,22 +133,21 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addComponent(jtRg))
-                            .addComponent(jtData, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jtRg)
+                            .addComponent(jtData))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(jtContato, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtValorFixo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel5)
+                            .addComponent(jtCpf)
+                            .addComponent(jtValorFixo)
+                            .addComponent(jtContato, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jbCadastrar)
@@ -163,26 +168,26 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtContato, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                            .addComponent(jtContato)))
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtRg, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jtCpf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtData, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtValorFixo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtData, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jtValorFixo))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCadastrar)
@@ -206,22 +211,6 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
         CadastroMoradorPerma.this.dispose();
         
     }//GEN-LAST:event_jbSairActionPerformed
-
-    private void jtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtDataActionPerformed
-
-    private void jtValorFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorFixoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtValorFixoActionPerformed
-
-    private void jtRgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtRgActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtRgActionPerformed
-
-    private void jtContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtContatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtContatoActionPerformed
 
     private void jtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeActionPerformed
         // TODO add your handling code here:
@@ -273,11 +262,11 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbSair;
-    private javax.swing.JTextField jtContato;
-    private javax.swing.JTextField jtCpf;
-    private javax.swing.JTextField jtData;
+    private javax.swing.JFormattedTextField jtContato;
+    private javax.swing.JFormattedTextField jtCpf;
+    private javax.swing.JFormattedTextField jtData;
     private javax.swing.JTextField jtNome;
-    private javax.swing.JTextField jtRg;
-    private javax.swing.JTextField jtValorFixo;
+    private javax.swing.JFormattedTextField jtRg;
+    private javax.swing.JFormattedTextField jtValorFixo;
     // End of variables declaration//GEN-END:variables
 }

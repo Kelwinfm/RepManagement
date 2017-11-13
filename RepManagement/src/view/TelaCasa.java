@@ -47,7 +47,6 @@ public class TelaCasa extends javax.swing.JFrame {
 
         checkbox1.setLabel("checkbox1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -76,11 +75,21 @@ public class TelaCasa extends javax.swing.JFrame {
         jButton2.setText("Salvar");
 
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         cKeditar.setLabel("Editar");
         cKeditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cKeditarMouseClicked(evt);
+            }
+        });
+        cKeditar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cKeditarPropertyChange(evt);
             }
         });
 
@@ -169,15 +178,28 @@ public class TelaCasa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cKeditarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cKeditarPropertyChange
+        // TODO add your handling code here:
+        
+    
+            
+       
+    }//GEN-LAST:event_cKeditarPropertyChange
+
     private void cKeditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cKeditarMouseClicked
         // TODO add your handling code here:
-    if (!cKeditar.isCursorSet()==true){
+          if (!cKeditar.isCursorSet()==false){
+          jTStatus.setEditable(false);
+          }
+          else if (!cKeditar.isCursorSet()==true){
            jTStatus.setEditable(true);
            }
-       else{
-          jTStatus.setEditable(false);
-       }
     }//GEN-LAST:event_cKeditarMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         TelaCasa.this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -105,9 +105,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem6);
 
         jMenuItem7.setText("Contas");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem7);
 
         jMenuItem8.setText("Caixinha");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem8);
 
         jMenuItem9.setText("Relatórios");
@@ -231,9 +241,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
-        TelaCasa casa = new TelaCasa();
-        new TelaCasa().setVisible(true);
+        TelaCasa ConTelaCasa = new TelaCasa();
+            ConTelaCasa.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+         CadastroContas ConContas = new CadastroContas();
+            ConContas.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+         AlterarCaixinha ConCaixinha = new AlterarCaixinha();
+            ConCaixinha.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
