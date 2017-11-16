@@ -40,16 +40,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuHelp = new javax.swing.JMenu();
         jMenuExit = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
@@ -94,23 +90,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Consultar");
-
-        jMenuItem6.setText("Morador");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem6);
-
-        jMenuItem7.setText("Contas");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem7);
+        jMenu4.setText("Gerenciar");
 
         jMenuItem8.setText("Caixinha");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +118,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu6.setText("Alterar");
+        jMenu6.setText("Alterar dados");
 
         jMenuItem10.setText("Morador");
         jMenu6.add(jMenuItem10);
@@ -146,18 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem11.setText("Contas");
         jMenu6.add(jMenuItem11);
 
-        jMenuItem12.setText("Caixinha");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem12);
-
         jMenuBar1.add(jMenu6);
-
-        jMenuHelp.setText("Help");
-        jMenuBar1.add(jMenuHelp);
 
         jMenuExit.setText("Sair");
         jMenuExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,18 +177,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             addConta.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        ConsultarMorador ConMorador = new ConsultarMorador();
-            ConMorador.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
         // TODO add your handling code here:
+        MenuPrincipal.this.dispose();
         
     }//GEN-LAST:event_jMenuExitActionPerformed
 
@@ -227,12 +191,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuExitMouseClicked
-
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        // TODO add your handling code here:
-        AlterarCaixinha AltCaixinha = new AlterarCaixinha();
-            AltCaixinha.setVisible(true);
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         CadastroMoradorTemp addMorador = new CadastroMoradorTemp();
@@ -244,12 +202,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         TelaCasa ConTelaCasa = new TelaCasa();
             ConTelaCasa.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-         CadastroContas ConContas = new CadastroContas();
-            ConContas.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
          AlterarCaixinha ConCaixinha = new AlterarCaixinha();
@@ -301,19 +253,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuExit;
-    private javax.swing.JMenu jMenuHelp;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
