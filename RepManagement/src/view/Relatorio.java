@@ -5,10 +5,7 @@
  */
 package view;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Contas;
 import model.Permanente;
 import model.Temporario;
@@ -46,7 +43,7 @@ public class Relatorio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jtfMes = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jbcEscolha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Moradores Permanentes", "Moradores Temporarios", "Contas" }));
         jbcEscolha.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +87,7 @@ public class Relatorio extends javax.swing.JFrame {
                         .addComponent(jtfMes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
                         .addComponent(jButton1)
-                        .addGap(0, 150, Short.MAX_VALUE)))
+                        .addGap(0, 305, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,7 +132,7 @@ public class Relatorio extends javax.swing.JFrame {
                 for (Permanente p : permanente.LoadAll()) {
                 this.permanente.add(p);
                 mostra = p;
-                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t" + mostra.getRg() + "\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo()+ "\t" + mostra.getDataEntrada() + quebraLinha + imprimir);
+                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t\t" + mostra.getRg()+ "\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo()+ "\t" + mostra.getDataEntrada() + quebraLinha + imprimir);
                 
                  }
                 print = 1;
@@ -147,7 +144,7 @@ public class Relatorio extends javax.swing.JFrame {
             for (Temporario t : temporario.LoadAll()) {
                 this.temporario.add(t);
                 mostra = t;
-                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo() + quebraLinha + imprimir);
+                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo() + quebraLinha + imprimir);
             }
 
             print = 2;
@@ -161,7 +158,7 @@ public class Relatorio extends javax.swing.JFrame {
                 this.contas.add(c);
                 mostra = c;
                 if(jtfMes.getText().equalsIgnoreCase(mostra.getMes()) ){
-                imprimir = (mostra.getTipo() + "\t" + mostra.getValor() + "\t" + mostra.getDataVenc()+ "\t" + mostra.isPago() + quebraLinha + imprimir);
+                imprimir = (mostra.getTipo() + "\t" + mostra.getValor() + "\t" + mostra.getDataVenc()+ "\t\t" + mostra.isPago() + quebraLinha + imprimir);
                 }
             }
             print = 3;
@@ -170,13 +167,13 @@ public class Relatorio extends javax.swing.JFrame {
 
         switch (print) {
             case 1:
-            imprimir = ("Nome" + "\t" + "Contato" + "\t" + "CPF" + "\t" + "RG" + "\t" + "Saldo devedor" +"\t" + "Valor fixo" +"\t" + "Data de entrada" + quebraLinha + quebraLinha + imprimir);
+            imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "RG" + "\t" + "Saldo devedor" +"\t" + "Valor fixo" +"\t" + "Data de entrada" + quebraLinha + quebraLinha + imprimir);
 
             jtTexto.setText(imprimir);
 
             break;
             case 2:
-            imprimir = ("Nome" + "\t" + "Contato" + "\t" + "CPF" + "\t" + "Saldo devedor" +"\t" + "Valor fixo" + quebraLinha + quebraLinha + imprimir);
+            imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "Saldo devedor" +"\t" + "Valor fixo" + quebraLinha + quebraLinha + imprimir);
             jtTexto.setText(imprimir);
 
             break;

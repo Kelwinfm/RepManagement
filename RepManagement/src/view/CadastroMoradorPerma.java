@@ -200,7 +200,7 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         // TODO add your handling code here:
-        Permanente P = new Permanente(jtNome.getText(), jtContato.getText(), jtCpf.getText(),"0",jtValorFixo.getText(),jtRg.getText(), jtData.getText());
+        Permanente P = new Permanente(jtNome.getText(), jtContato.getText(), jtCpf.getText(),"0",jtValorFixo.getText(),jtData.getText(),jtRg.getText());
         limpar();
         P.cadastrarMoradorPerm(P);
         JOptionPane.showMessageDialog(rootPane, "Novo Morador Cadastrado com Sucesso");
