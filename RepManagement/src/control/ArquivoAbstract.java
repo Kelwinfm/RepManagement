@@ -10,13 +10,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author kelwin
  */
-public abstract class ArquivoAbstract implements Arquivos {
+public abstract class ArquivoAbstract implements Arquivos, Serializable {
 
     /**
      *Remove um arquivo selecionado da persistencia

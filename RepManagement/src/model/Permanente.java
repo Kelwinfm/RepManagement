@@ -6,24 +6,21 @@
  */
 package model;
 
-import control.Arquivos;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author kelwin
  * @see Moradores
  */
-public class Permanente extends Moradores implements Arquivos, Serializable {
+public class Permanente extends Moradores {
 
     private String dataEntrada;
     private String rg;
