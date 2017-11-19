@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import model.GeCasa;
 import model.Permanente;
 
 /**
@@ -38,10 +40,10 @@ public class TelaCasa extends javax.swing.JFrame {
         jTMoradores = new javax.swing.JTextField();
         jTPermanente = new javax.swing.JTextField();
         jTTemporario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        cKeditar = new java.awt.Checkbox();
+        jBatualizar = new javax.swing.JButton();
+        jBSalvar = new javax.swing.JButton();
+        jBcancelar = new javax.swing.JButton();
+        cKeditar = new javax.swing.JCheckBox();
 
         jLabel5.setText("jLabel5");
 
@@ -53,7 +55,7 @@ public class TelaCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Quatidade de Moradores :");
+        jLabel1.setText("Quatidade de Moradores Permanentes :");
 
         jLabel2.setText("Quantidade de vagas Permanentes :");
 
@@ -64,32 +66,47 @@ public class TelaCasa extends javax.swing.JFrame {
         jTStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTMoradores.setEditable(false);
-
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTMoradores.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTMoradores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTMoradoresActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Salvar");
+        jTPermanente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jTTemporario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jBatualizar.setText("Atualizar");
+        jBatualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBatualizarActionPerformed(evt);
             }
         });
 
-        cKeditar.setLabel("Editar");
+        jBSalvar.setText("Salvar");
+        jBSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBSalvarMouseClicked(evt);
+            }
+        });
+
+        jBcancelar.setText("Cancelar");
+        jBcancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcancelarActionPerformed(evt);
+            }
+        });
+
+        cKeditar.setText("Editar");
         cKeditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cKeditarMouseClicked(evt);
             }
         });
-        cKeditar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                cKeditarPropertyChange(evt);
+        cKeditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cKeditarActionPerformed(evt);
             }
         });
 
@@ -98,14 +115,14 @@ public class TelaCasa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(jBatualizar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jBSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -117,16 +134,17 @@ public class TelaCasa extends javax.swing.JFrame {
                                     .addComponent(jTTemporario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3))))
+                                .addComponent(jBcancelar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTMoradores, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTStatus))
-                        .addGap(2, 2, 2)
-                        .addComponent(cKeditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cKeditar)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +152,7 @@ public class TelaCasa extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cKeditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cKeditar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTMoradores, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,9 +167,9 @@ public class TelaCasa extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jBatualizar)
+                    .addComponent(jBSalvar)
+                    .addComponent(jBcancelar))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -159,47 +177,76 @@ public class TelaCasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-   
-        int count = 0;
         
+       
+        
+        int count = 0;
+       
+        //---------------MORADORES PERMANENTES----------------------------// 
         Permanente permanente = new Permanente();
 
             for (Permanente p : permanente.LoadAll()) {
             count ++;
             }        
+       
+       jTMoradores.setText(Integer.toString(count));
             
-        jTMoradores.setText(Integer.toString(count));
-    
+        GeCasa casa = new GeCasa();
+      
+        casa.Load(casa.getNome());
+        
+        String nome;
+        nome = casa.getNome();
+        System.out.println(""+nome);
+        jTStatus.setText(nome);
+        jTPermanente.setText(casa.getVagasPerm());
+        jTTemporario.setText(casa.getVagasTemp());
+        
+       
+        
         
     // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBatualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBatualizarActionPerformed
 
-    private void cKeditarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cKeditarPropertyChange
-        // TODO add your handling code here:
-        
-    
-            
-       
-    }//GEN-LAST:event_cKeditarPropertyChange
-
-    private void cKeditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cKeditarMouseClicked
-        // TODO add your handling code here:
-          if (!cKeditar.isCursorSet()==false){
-          jTStatus.setEditable(false);
-          }
-          else if (!cKeditar.isCursorSet()==true){
-           jTStatus.setEditable(true);
-           }
-    }//GEN-LAST:event_cKeditarMouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jBcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcancelarActionPerformed
          TelaCasa.this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jBcancelarActionPerformed
+
+    private void jTMoradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTMoradoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTMoradoresActionPerformed
+
+    private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
+    
+        GeCasa casa = new GeCasa();
+        
+        casa.setVagasPerm(jTPermanente.getText());
+        casa.setVagasTemp(jTTemporario.getText());
+        casa.setNome(jTStatus.getText());
+        casa.Save();
+        
+        JOptionPane.showMessageDialog(null,"Salvo com Sucesso");
+    }//GEN-LAST:event_jBSalvarMouseClicked
+
+    private void cKeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cKeditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cKeditarActionPerformed
+
+    private void cKeditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cKeditarMouseClicked
+       
+        if (cKeditar.isCursorSet()==false){
+        jTStatus.setEditable(true);
+        }
+        else if (cKeditar.isCursorSet()==true)
+        jTStatus.setEditable(false);
+       
+   
+    }//GEN-LAST:event_cKeditarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -237,11 +284,11 @@ public class TelaCasa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox cKeditar;
+    private javax.swing.JCheckBox cKeditar;
     private java.awt.Checkbox checkbox1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBSalvar;
+    private javax.swing.JButton jBatualizar;
+    private javax.swing.JButton jBcancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

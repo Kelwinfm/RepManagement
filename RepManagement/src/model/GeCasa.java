@@ -27,7 +27,7 @@ public class GeCasa extends Casa implements Arquivos, Serializable {
    
     @Override
     public String ArquivoNome() {
-        String s = DiretorioNome() + "Casa" + this.getNome()+ ".Casa";
+        String s = DiretorioNome() + this.getNome()+ ".Casa";
         return s;
     }
 
