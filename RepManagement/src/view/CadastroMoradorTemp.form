@@ -20,13 +20,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="144" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="93" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" pref="87" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jtNome" min="-2" pref="188" max="-2" attributes="0"/>
@@ -35,7 +38,7 @@
                           <Component id="jtCpf" min="-2" pref="179" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
@@ -45,20 +48,17 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jtValorFixo" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtPeriodo" min="-2" pref="76" max="-2" attributes="0"/>
+                              <Component id="jtPeriodo" pref="76" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jtContato" min="-2" pref="191" max="-2" attributes="0"/>
+                          <Component id="jtContato" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="133" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="93" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="87" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,10 +93,12 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jtPeriodo" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="jtCpf" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jtValorFixo" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jtCpf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jtValorFixo" alignment="0" pref="35" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -157,6 +159,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtNome">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtNomeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jtCpf">
       <Properties>
