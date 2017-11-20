@@ -98,8 +98,8 @@ public class GeCasa extends Casa implements Arquivos, Serializable {
      * @return um array de todos os arquivos de certo tipo
      */
     @Override
-    public ArrayList<Casa> LoadAll() {
-        ArrayList<Casa> t = null;
+    public ArrayList<GeCasa> LoadAll() {
+        ArrayList<GeCasa> t = null;
 
         try {
             t = LoadAllFiles();
@@ -108,6 +108,23 @@ public class GeCasa extends Casa implements Arquivos, Serializable {
         } finally {
             return t;
         }
+    }
+    public ArrayList<GeCasa> casas = new ArrayList<>();
+     public void CarregarCasa() throws IllegalArgumentException, IOException {
+        GeCasa casa = new GeCasa();
+
+        for (GeCasa  c : casa.LoadAll()) {
+            this.casas.add(c);
+        }
+    }
+     public GeCasa ConsultarCasa(String nome) {
+
+        for (GeCasa casa : casas) {
+            if (casa.getNome().compareToIgnoreCase(nome) == 0) {
+                return casa;
+            }
+        }
+        return null;
     }
 }
     

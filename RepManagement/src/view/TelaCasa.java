@@ -5,9 +5,14 @@
  */
 package view;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.GeCasa;
 import model.Permanente;
+import model.Temporario;
 
 /**
  *
@@ -21,6 +26,7 @@ public class TelaCasa extends javax.swing.JFrame {
     public TelaCasa() {
         initComponents();
     }
+    public ArrayList<GeCasa> casa = new ArrayList<>();  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +55,7 @@ public class TelaCasa extends javax.swing.JFrame {
 
         checkbox1.setLabel("checkbox1");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -190,26 +197,24 @@ public class TelaCasa extends javax.swing.JFrame {
             }        
        
        jTMoradores.setText(Integer.toString(count));
-            
-        GeCasa casa = new GeCasa();
-      
-        casa.Load(casa.getNome());
         
-        String nome;
-        nome = casa.getNome();
-        System.out.println(""+nome);
-        jTStatus.setText(nome);
+        GeCasa casa = new GeCasa();
+                
+                for (GeCasa c : casa.LoadAll()) {
+                this.casa.add(c);
+                casa = c;
+                }
+        jTStatus.setText(casa.getNome());
         jTPermanente.setText(casa.getVagasPerm());
         jTTemporario.setText(casa.getVagasTemp());
-        
-       
-        
         
     // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void jBatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBatualizarActionPerformed
         // TODO add your handling code here:
+        
+
     }//GEN-LAST:event_jBatualizarActionPerformed
 
     private void jBcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcancelarActionPerformed
