@@ -91,17 +91,20 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
 
     /**
      * Adicionar valor ao montante
+     * @param valor
      */
-    public void creditarValor() {
-
+    public void creditarValor(float valor) {
+       
     }
 
     /**
      * Retirar valor do montante
+     * @param valor
      */
-    public void debitarValor() {
-
+    public void debitarValor(float valor) {
+       
     }
+    
 
     /**
      * Procedimento para geração de um log de inserção e remoção do montante
