@@ -72,7 +72,7 @@ public final class Caixinha extends Despesas implements Arquivos, Serializable {
      */
     @Override
     public String ArquivoNome() {
-        String s = DiretorioNome() + "Caixinha_" + "_" + this.getMes() + "_" + this.getAno() + ".Caixinha";
+        String s = DiretorioNome() + "Caixinha" + ".Caixinha";
         return s;
     }
 
