@@ -36,7 +36,7 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
     public Caixinha() {
         super();
         montante = null;
-        valorIndividual = null;
+        
     }
 
     /**

@@ -5,9 +5,9 @@
  */
 package view;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Caixinha;
-
 /**
  *
  * @author FelipeTosta
@@ -20,7 +20,7 @@ public class AlterarCaixinha extends javax.swing.JFrame {
     public AlterarCaixinha() {
         initComponents();
     }
-
+ public ArrayList<Caixinha> caixa = new ArrayList<>();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,28 +32,30 @@ public class AlterarCaixinha extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jBConfirmar = new javax.swing.JButton();
+        jBInserir = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jtValorInsert = new javax.swing.JFormattedTextField();
         jtValorRemove = new javax.swing.JFormattedTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTDescricao = new javax.swing.JTextField();
         jTTotal = new javax.swing.JFormattedTextField();
+        jBRemover = new javax.swing.JButton();
+        jLMontante = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Valor para Inserção:");
 
         jLabel2.setText("Valor para Remoção:");
 
-        jBConfirmar.setText("Confirmar");
-        jBConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBInserir.setText("Inserir");
+        jBInserir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBConfirmarMouseClicked(evt);
-            }
-        });
-        jBConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBConfirmarActionPerformed(evt);
+                jBInserirMouseClicked(evt);
             }
         });
 
@@ -68,82 +70,91 @@ public class AlterarCaixinha extends javax.swing.JFrame {
         jLabel3.setText("Caixinha");
 
         try {
-            jtValorInsert.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ####,##")));
+            jtValorInsert.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jtValorInsert.setToolTipText("");
 
         try {
-            jtValorRemove.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ####,##")));
+            jtValorRemove.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jtValorRemove.setText("");
 
-        jLabel4.setText("Descrição:");
-
+        jTTotal.setEditable(false);
         jTTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         jTTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTTotal.setText("0");
+        jTTotal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+
+        jBRemover.setText("Remover");
+        jBRemover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBRemoverMouseClicked(evt);
+            }
+        });
+
+        jLMontante.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLMontante.setText("Montante Atual");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBConfirmar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBCancelar)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabel4)
-                                .addGap(8, 8, 8)
-                                .addComponent(jTDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtValorRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtValorInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jTTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(24, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(247, 247, 247)
-                .addComponent(jLabel3)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jtValorInsert)
+                        .addComponent(jBInserir)
+                        .addComponent(jtValorRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                    .addComponent(jBRemover))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBCancelar)
+                    .addComponent(jTTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(200, 200, 200))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLMontante)
+                        .addGap(64, 64, 64))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(33, 33, 33)
+                .addGap(13, 13, 13)
+                .addComponent(jLMontante)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jtValorInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtValorInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jBInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jtValorRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                            .addComponent(jtValorRemove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCancelar)
-                    .addComponent(jBConfirmar))
-                .addContainerGap())
+                    .addComponent(jBRemover)
+                    .addComponent(jBCancelar))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -155,39 +166,89 @@ public class AlterarCaixinha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jBConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBConfirmarMouseClicked
-        
-       if (!"".equals(jtValorInsert.getText())){ 
-       String s = jtValorInsert.getText();
-        s = s.replace(",", ".");
-        jTTotal.setText(s);
-       }
-       
-       else if (!"".equals(jtValorInsert.getText())){
-        String s = jtValorRemove.getText();
-        String s2 = jTTotal.getText();
-        String ret;
-        
-        float rem,total,sub;
-        rem = Float.parseFloat(s);
-        total = Float.parseFloat(s2);
-        
-        sub = total - rem;
-        
-        ret = Float.toString(sub);
-        
-        ret = ret.replace(",", ".");
-        jTTotal.setText(ret);
-       } 
-       else
-           JOptionPane.showMessageDialog(null,"Erro");
+    private void jBInserirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInserirMouseClicked
+       Caixinha caixa = new Caixinha();
       
-        
-    }//GEN-LAST:event_jBConfirmarMouseClicked
+       
+       if (!"".equals(caixa.getMontante())){ /*Evitar que montante fique negativo*/
+       jtValorRemove.setEditable(true);
+       
+                if (!"    .  ".equals(jtValorInsert.getText())){
+                    
+                                
+                for (Caixinha c : caixa.LoadAll()) {
+                this.caixa.add(c);
+                caixa = c;
+                }
+                
+                
+                float valorInsert = Float.parseFloat(jtValorInsert.getText().trim());
+                float montante = Float.parseFloat(caixa.getMontante().trim());
+                montante += valorInsert;
+              
+                jTTotal.setText(Float.toString(montante).trim());
+                caixa.setMontante(Float.toString(montante).trim());
+                caixa.Save();
+                  }
+                else{
+                    JOptionPane.showMessageDialog(null,"Insira um valor");
+                 }
+       }
+       else
+           JOptionPane.showMessageDialog(null,"Erro ao inserir");
+       
+       jtValorInsert.setText("");
+       jtValorRemove.setText("");
+       
+       
+    }//GEN-LAST:event_jBInserirMouseClicked
 
-    private void jBConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfirmarActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Caixinha caixa = new Caixinha();
+        
+           for (Caixinha c : caixa.LoadAll()) {
+                this.caixa.add(c);
+                caixa = c;
+           }
+           
+        jTTotal.setText(caixa.getMontante());
+        
+        caixa.Save();   
+       
+        
+        
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBConfirmarActionPerformed
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jBRemoverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRemoverMouseClicked
+         Caixinha caixa = new Caixinha();
+                
+         
+                if (!"    .  ".equals(jtValorRemove.getText())){
+             
+                for (Caixinha c : caixa.LoadAll()) {
+                this.caixa.add(c);
+                caixa = c;
+                }
+                
+                float valorRemove = Float.parseFloat(jtValorRemove.getText().trim());
+                float montante = Float.parseFloat(caixa.getMontante().trim());
+                montante -= valorRemove;
+              
+                jTTotal.setText(Float.toString(montante).trim());
+                caixa.setMontante(Float.toString(montante).trim());
+                caixa.Save();
+      
+                jtValorInsert.setText("");
+                jtValorRemove.setText("");
+                }
+                else{
+                      JOptionPane.showMessageDialog(null,"Insira um valor");
+                }    
+                
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBRemoverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -226,12 +287,12 @@ public class AlterarCaixinha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
-    private javax.swing.JButton jBConfirmar;
+    private javax.swing.JButton jBInserir;
+    private javax.swing.JButton jBRemover;
+    private javax.swing.JLabel jLMontante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTDescricao;
     private javax.swing.JFormattedTextField jTTotal;
     private javax.swing.JFormattedTextField jtValorInsert;
     private javax.swing.JFormattedTextField jtValorRemove;
