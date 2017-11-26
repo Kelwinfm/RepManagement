@@ -93,7 +93,7 @@ public class CadastroMoradorTemp extends javax.swing.JFrame {
         }
 
         try {
-            jtValorFixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ####,##")));
+            jtValorFixo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ###,##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
