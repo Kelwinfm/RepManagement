@@ -22,21 +22,17 @@ import java.util.logging.Logger;
  * depositados mensalmente, além dos atributos herdados da super classe
  *
  * @see Despesas
- * @author kelwin
- * @author felipe
  */
-public class Caixinha extends Despesas implements Arquivos, Serializable {
+public final class Caixinha extends Despesas implements Arquivos, Serializable {
 
     private String montante;
-    private String valorIndividual;
 
     /**
      * Cria um objeto vazio passando null para todos parametros
      */
     public Caixinha() {
         super();
-        montante = null;
-        
+
     }
 
     /**
@@ -48,13 +44,10 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
      * @param valor
      * @param dataVenc
      * @param montante Total dos valores depositados mensalmente
-     * @param valorIndividual Quantidade de um valor depositado individual e
-     * mensalmente
      */
-    public Caixinha(String mes, String ano, String valor, String dataVenc, String montante, String valorIndividual) {
+    public Caixinha(String mes, String ano, String valor, String dataVenc, String montante) {
         super(mes, ano, valor, dataVenc);
         setMontante(montante);
-        setValorIndividual(valorIndividual);
     }
 
     /**
@@ -71,47 +64,6 @@ public class Caixinha extends Despesas implements Arquivos, Serializable {
      */
     public void setMontante(String montante) {
         this.montante = montante;
-    }
-
-    /**
-     *
-     * @return valor que cada morador paga da caixinha
-     */
-    public String getValorIndividual() {
-        return valorIndividual;
-    }
-
-    /**
-     *
-     * @param valorIndividual instancia um valor previamente combinado
-     */
-    public void setValorIndividual(String valorIndividual) {
-        this.valorIndividual = valorIndividual;
-    }
-
-    /**
-     * Adicionar valor ao montante
-     * @param valor
-     */
-    public void creditarValor(float valor) {
-       
-    }
-
-    /**
-     * Retirar valor do montante
-     * @param valor
-     */
-    public void debitarValor(float valor) {
-       
-    }
-    
-
-    /**
-     * Procedimento para geração de um log de inserção e remoção do montante
-     * para controle dos moradores da entrada e saida de dinhheiro.
-     */
-    public void gerarLog() {
-
     }
 
     /**

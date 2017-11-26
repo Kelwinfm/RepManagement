@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author kelwin
  * @see Moradores
  */
 public class Temporario extends Moradores implements Arquivos, Serializable {
@@ -64,7 +63,7 @@ public class Temporario extends Moradores implements Arquivos, Serializable {
      *
      * @param periodo
      */
-    public void setPeriodo(String periodo) {
+    public final void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
 
@@ -171,12 +170,12 @@ public class Temporario extends Moradores implements Arquivos, Serializable {
         }
     }
     public ArrayList<Temporario> temporarios = new ArrayList<>();//array list de moradores temporarios
-    
-        public void cadastrarMoradorTemp(Temporario T){
+
+    public void cadastrarMoradorTemp(Temporario T) {
         temporarios.add(T);
-        T.Save();        
+        T.Save();
     }
-        
+
     public void CarregarTemporario() throws IllegalArgumentException, IOException {
         Temporario temporario = new Temporario();
 

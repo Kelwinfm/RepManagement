@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
@@ -9,13 +10,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Contas;
 import model.Permanente;
 
-/**
- *
- * @author kelwi
- */
 public class AlterarPermanente extends javax.swing.JFrame {
 
     /**
@@ -24,12 +20,14 @@ public class AlterarPermanente extends javax.swing.JFrame {
     public AlterarPermanente() {
         initComponents();
     }
+
     public void limpar() {
         jtNome.setText(null);
-        jtContato.setText(null); 
+        jtContato.setText(null);
         jtValorFixo.setText(null);
         jtSaldoDevedor.setText(null);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -215,9 +213,7 @@ public class AlterarPermanente extends javax.swing.JFrame {
         Permanente perma = new Permanente();
         try {
             perma.CarregarPermanente();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarPermanente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarPermanente.class.getName()).log(Level.SEVERE, null, ex);
         }
         Permanente consulta = perma.ConsultarPermanente(jtRg.getText());
@@ -234,21 +230,19 @@ public class AlterarPermanente extends javax.swing.JFrame {
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
         // TODO add your handling code here:
         Permanente perm = new Permanente();
-       try {
-            perm.CarregarPermanente();         
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        try {
+            perm.CarregarPermanente();
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
-       Permanente consulta = perm.ConsultarPermanente(jtRg.getText());
-       consulta.setContato(jtContato.getText());
-       consulta.setValorFixo(jtValorFixo.getText());
-       consulta.setSaldoDevedor(jtSaldoDevedor.getText());
-       
-       consulta.Save();
-       JOptionPane.showMessageDialog(rootPane, "morador Alterado com Sucesso");
-       limpar();
+        Permanente consulta = perm.ConsultarPermanente(jtRg.getText());
+        consulta.setContato(jtContato.getText());
+        consulta.setValorFixo(jtValorFixo.getText());
+        consulta.setSaldoDevedor(jtSaldoDevedor.getText());
+
+        consulta.Save();
+        JOptionPane.showMessageDialog(rootPane, "morador Alterado com Sucesso");
+        limpar();
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -256,13 +250,11 @@ public class AlterarPermanente extends javax.swing.JFrame {
         Permanente perm = new Permanente();
         try {
             perm.CarregarPermanente();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(perm.RemoverPermanente(jtRg.getText())== true){
+
+        if (perm.RemoverPermanente(jtRg.getText()) == true) {
             JOptionPane.showMessageDialog(rootPane, "Morador removido com Sucesso");
             limpar();
         }
@@ -297,6 +289,7 @@ public class AlterarPermanente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlterarPermanente().setVisible(true);
             }

@@ -5,19 +5,11 @@
  */
 package view;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.GeCasa;
 import model.Permanente;
-import model.Temporario;
 
-/**
- *
- * @author FelipeTosta
- */
 public class TelaCasa extends javax.swing.JFrame {
 
     /**
@@ -26,7 +18,7 @@ public class TelaCasa extends javax.swing.JFrame {
     public TelaCasa() {
         initComponents();
     }
-    public ArrayList<GeCasa> casa = new ArrayList<>();  
+    public ArrayList<GeCasa> casa = new ArrayList<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,41 +176,33 @@ public class TelaCasa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-       
-        
+
         int count = 0;
-       
+
         //---------------MORADORES PERMANENTES----------------------------// 
         Permanente permanente = new Permanente();
 
-            for (Permanente p : permanente.LoadAll()) {
-            count ++;
-            }        
-       
-       jTMoradores.setText(Integer.toString(count));
-        
+        for (Permanente p : permanente.LoadAll()) {
+            count++;
+        }
+
+        jTMoradores.setText(Integer.toString(count));
+
         GeCasa casa = new GeCasa();
-                
-                for (GeCasa c : casa.LoadAll()) {
-                this.casa.add(c);
-                casa = c;
-                }
+
+        for (GeCasa c : casa.LoadAll()) {
+            this.casa.add(c);
+            casa = c;
+        }
         jTStatus.setText(casa.getNome());
         jTPermanente.setText(casa.getVagasPerm());
         jTTemporario.setText(casa.getVagasTemp());
-        
-    // TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    private void jBatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBatualizarActionPerformed
-        // TODO add your handling code here:
-        
-
-    }//GEN-LAST:event_jBatualizarActionPerformed
-
     private void jBcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcancelarActionPerformed
-         TelaCasa.this.dispose();
+        TelaCasa.this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jBcancelarActionPerformed
 
@@ -227,15 +211,15 @@ public class TelaCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTMoradoresActionPerformed
 
     private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
-    
+
         GeCasa casa = new GeCasa();
-        
+
         casa.setVagasPerm(jTPermanente.getText());
         casa.setVagasTemp(jTTemporario.getText());
         casa.setNome(jTStatus.getText());
         casa.Save();
-        
-        JOptionPane.showMessageDialog(null,"Salvo com Sucesso");
+
+        JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
     }//GEN-LAST:event_jBSalvarMouseClicked
 
     private void cKeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cKeditarActionPerformed
@@ -243,15 +227,25 @@ public class TelaCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_cKeditarActionPerformed
 
     private void cKeditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cKeditarMouseClicked
-       
-        if (cKeditar.isCursorSet()==false){
-        jTStatus.setEditable(true);
+
+        if (cKeditar.isCursorSet() == false) {
+            jTStatus.setEditable(true);
+        } else if (cKeditar.isCursorSet() == true) {
+            jTStatus.setEditable(false);
         }
-        else if (cKeditar.isCursorSet()==true)
-        jTStatus.setEditable(false);
-       
-   
+
     }//GEN-LAST:event_cKeditarMouseClicked
+
+    private void jBatualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBatualizarActionPerformed
+        // TODO add your handling code here:
+        GeCasa casa = new GeCasa();
+
+        casa.setVagasPerm(jTPermanente.getText());
+        casa.setVagasTemp(jTTemporario.getText());
+        casa.setNome(jTStatus.getText());
+        casa.Save();
+        JOptionPane.showMessageDialog(null, "Dados atualizados");
+    }//GEN-LAST:event_jBatualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,6 +276,7 @@ public class TelaCasa extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaCasa().setVisible(true);
             }

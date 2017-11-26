@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author kelwin
  * @see Moradores
  */
 public class Permanente extends Moradores {
@@ -69,7 +68,7 @@ public class Permanente extends Moradores {
      *
      * @param dataEntrada
      */
-    public void setDataEntrada(String dataEntrada) {
+    public final void setDataEntrada(String dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
 
@@ -85,7 +84,7 @@ public class Permanente extends Moradores {
      *
      * @param rg
      */
-    public void setRg(String rg) {
+    public final void setRg(String rg) {
         this.rg = rg;
     }
 
@@ -177,14 +176,14 @@ public class Permanente extends Moradores {
             return t;
         }
     }
-    
+
     public ArrayList<Permanente> permanentes = new ArrayList<>();//array list de moradores permanentes
-    
-    public void cadastrarMoradorPerm(Permanente P){
+
+    public void cadastrarMoradorPerm(Permanente P) {
         permanentes.add(P);
-        P.Save();        
+        P.Save();
     }
-    
+
     public void CarregarPermanente() throws IllegalArgumentException, IOException {
         Permanente permanente = new Permanente();
 

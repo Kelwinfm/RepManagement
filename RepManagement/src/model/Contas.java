@@ -21,12 +21,12 @@ import java.util.logging.Logger;
  *
  * Sub classe de Despesas em que mostra o tipo de conta e o status da mesma
  *
- * @author kelwin
+ * @see Despesas
  */
 public class Contas extends Despesas implements Arquivos, Serializable {
 
     private String tipo;
-    private boolean pago;
+    private String pago;
 
     /**
      * Cria um objeto vazio passando null para todos parametros
@@ -34,7 +34,7 @@ public class Contas extends Despesas implements Arquivos, Serializable {
     public Contas() {
         super();
         tipo = null;
-        pago = true;
+        pago = null;
     }
 
     /**
@@ -49,17 +49,12 @@ public class Contas extends Despesas implements Arquivos, Serializable {
      * @param pago Pode receber True se tiver sido paga ou False se ainda nao
      * foi paga
      */
-    public Contas(String mes, String ano, String valor, String dataVenc, String tipo, boolean pago) {
+    public Contas(String mes, String ano, String valor, String dataVenc, String tipo, String pago) {
         super(mes, ano, valor, dataVenc);
         setTipo(tipo);
-        setPago(true);
+        setPago(pago);
     }
 
-    /*public Contas(int mes, int ano, float valor, String dataVenc, String tipo, boolean pago) {
-        super(mes, ano, valor, dataVenc);
-        this.tipo = tipo;
-        this.pago = pago;
-    }*/
     /**
      *
      * @return
@@ -80,30 +75,16 @@ public class Contas extends Despesas implements Arquivos, Serializable {
      *
      * @return
      */
-    public boolean isPago() {
-        return true;
+    public String getPago() {
+        return pago;
     }
 
     /**
      *
      * @param pago
      */
-    public void setPago(boolean pago) {
-        this.pago = true;
-    }
-
-    /**
-     * Colocar todos os dados das contas pagas em um unico arquivo com os totais
-     */
-    public void gerarRelatorio() {
-
-    }
-
-    /**
-     *
-     */
-    public void consultarRelatorio() {
-
+    public void setPago(String pago) {
+        this.pago = pago;
     }
 
     /**
@@ -194,14 +175,14 @@ public class Contas extends Despesas implements Arquivos, Serializable {
             return t;
         }
     }
-    
-     public ArrayList<Contas> contass = new ArrayList<>();//array list de contas
-     
-        public void inserirConta(Contas C){
+
+    public ArrayList<Contas> contass = new ArrayList<>();//array list de contas
+
+    public void inserirConta(Contas C) {
         contass.add(C);
-        C.Save();        
+        C.Save();
     }
-        
+
     public void CarregarContas() throws IllegalArgumentException, IOException {
         Contas contas = new Contas();
 
@@ -213,9 +194,9 @@ public class Contas extends Despesas implements Arquivos, Serializable {
     public Contas ConsultarContas(String tipo, String mes, String ano) {
 
         for (Contas contas : contass) {
-            if (contas.getTipo().compareToIgnoreCase(tipo) == 0 && 
-                contas.getMes().compareToIgnoreCase(mes) == 0 &&
-                contas.getAno().compareToIgnoreCase(ano) == 0){
+            if (contas.getTipo().compareToIgnoreCase(tipo) == 0
+                    && contas.getMes().compareToIgnoreCase(mes) == 0
+                    && contas.getAno().compareToIgnoreCase(ano) == 0) {
                 return contas;
             }
         }

@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
@@ -11,10 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Temporario;
 
-/**
- *
- * @author kelwi
- */
 public class AlterarTemporario extends javax.swing.JFrame {
 
     /**
@@ -23,9 +20,10 @@ public class AlterarTemporario extends javax.swing.JFrame {
     public AlterarTemporario() {
         initComponents();
     }
-        public void limpar() {
+
+    public void limpar() {
         jtNome2.setText(null);
-        jtContato1.setText(null); 
+        jtContato1.setText(null);
         jtValorFixo1.setText(null);
         jtPeriodo1.setText(null);
         jtSaldoDevedor.setText(null);
@@ -220,13 +218,11 @@ public class AlterarTemporario extends javax.swing.JFrame {
         Temporario temp = new Temporario();
         try {
             temp.CarregarTemporario();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if(temp.RemoverTemporario(jtCpf1.getText())== true){
+        if (temp.RemoverTemporario(jtCpf1.getText()) == true) {
             JOptionPane.showMessageDialog(rootPane, "Morador removido com Sucesso");
             limpar();
         }
@@ -237,9 +233,7 @@ public class AlterarTemporario extends javax.swing.JFrame {
         Temporario temp = new Temporario();
         try {
             temp.CarregarTemporario();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
         Temporario consulta = temp.ConsultarTemporario(jtCpf1.getText());
@@ -258,9 +252,7 @@ public class AlterarTemporario extends javax.swing.JFrame {
         Temporario temp = new Temporario();
         try {
             temp.CarregarTemporario();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarPermanente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarPermanente.class.getName()).log(Level.SEVERE, null, ex);
         }
         Temporario consulta = temp.ConsultarTemporario(jtCpf1.getText());
@@ -303,6 +295,7 @@ public class AlterarTemporario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlterarTemporario().setVisible(true);
             }

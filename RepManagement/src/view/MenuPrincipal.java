@@ -1,15 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
-
-/**
- *
- * @author FelipeTosta
- */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -17,7 +13,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        
+
     }
 
     /**
@@ -141,6 +137,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu6.add(jMenuItem6);
 
         jMenuItem11.setText("Contas");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem11);
 
         jMenuBar1.add(jMenu6);
@@ -183,16 +184,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        
+
         CadastroMoradorPerma addMorador = new CadastroMoradorPerma();
-            addMorador.setVisible(true);
-     
+        addMorador.setVisible(true);
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         CadastroContas addConta = new CadastroContas();
-            addConta.setVisible(true);
+        addConta.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
@@ -204,7 +205,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExitActionPerformed
         // TODO add your handling code here:
         MenuPrincipal.this.dispose();
-        
+
     }//GEN-LAST:event_jMenuExitActionPerformed
 
     private void jMenuExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuExitMouseClicked
@@ -214,18 +215,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         CadastroMoradorTemp addMorador = new CadastroMoradorTemp();
-            addMorador.setVisible(true);// TODO add your handling code here:
+        addMorador.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
         TelaCasa ConTelaCasa = new TelaCasa();
-            ConTelaCasa.setVisible(true);
+        ConTelaCasa.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-         AlterarCaixinha ConCaixinha = new AlterarCaixinha();
-            ConCaixinha.setVisible(true);
+        AlterarCaixinha ConCaixinha = new AlterarCaixinha();
+        ConCaixinha.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -240,6 +241,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         AlterarTemporario alterartemp = new AlterarTemporario();
         alterartemp.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        AlterarConta alterarconta = new AlterarConta();
+        alterarconta.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,6 +277,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MenuPrincipal().setVisible(true);
             }

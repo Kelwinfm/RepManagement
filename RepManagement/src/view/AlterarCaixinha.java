@@ -1,17 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Caixinha;
-/**
- *
- * @author FelipeTosta
- */
+
 public class AlterarCaixinha extends javax.swing.JFrame {
 
     /**
@@ -20,7 +18,8 @@ public class AlterarCaixinha extends javax.swing.JFrame {
     public AlterarCaixinha() {
         initComponents();
     }
- public ArrayList<Caixinha> caixa = new ArrayList<>();
+    public ArrayList<Caixinha> caixa = new ArrayList<>();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,18 +69,17 @@ public class AlterarCaixinha extends javax.swing.JFrame {
         jLabel3.setText("Caixinha");
 
         try {
-            jtValorInsert.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####.##")));
+            jtValorInsert.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         jtValorInsert.setToolTipText("");
 
         try {
-            jtValorRemove.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####.##")));
+            jtValorRemove.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jtValorRemove.setText("");
 
         jTTotal.setEditable(false);
         jTTotal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
@@ -112,8 +110,8 @@ public class AlterarCaixinha extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jtValorInsert)
-                        .addComponent(jBInserir)
-                        .addComponent(jtValorRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                        .addComponent(jtValorRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                        .addComponent(jBInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBRemover))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,92 +160,72 @@ public class AlterarCaixinha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
-         AlterarCaixinha.this.dispose();
+        AlterarCaixinha.this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jBInserirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBInserirMouseClicked
-       Caixinha caixa = new Caixinha();
-      
-       
-       if (!"".equals(caixa.getMontante())){ /*Evitar que montante fique negativo*/
-       jtValorRemove.setEditable(true);
-       
-                if (!"    .  ".equals(jtValorInsert.getText())){
-                    
-                                
-                for (Caixinha c : caixa.LoadAll()) {
+        Caixinha caixa = new Caixinha();
+
+        if ("   .  ".equals(jtValorInsert.getText())) {
+            JOptionPane.showMessageDialog(null, "Insira um valor");
+        } else {
+
+            float valorInsert = Float.parseFloat(jtValorInsert.getText());
+            caixa.setValor(Float.toString(valorInsert));
+            float montante = Float.parseFloat(jTTotal.getText());
+
+            montante += valorInsert;
+            caixa.setMontante(Float.toString(montante));
+            caixa.Save();
+
+            for (Caixinha c : caixa.LoadAll()) {
                 this.caixa.add(c);
                 caixa = c;
-                }
-                
-                
-                float valorInsert = Float.parseFloat(jtValorInsert.getText().trim());
-                float montante = Float.parseFloat(caixa.getMontante().trim());
-                montante += valorInsert;
-              
-                jTTotal.setText(Float.toString(montante).trim());
-                caixa.setMontante(Float.toString(montante).trim());
-                caixa.Save();
-                  }
-                else{
-                    JOptionPane.showMessageDialog(null,"Insira um valor");
-                 }
-       }
-       else
-           JOptionPane.showMessageDialog(null,"Erro ao inserir");
-       
-       jtValorInsert.setText("");
-       jtValorRemove.setText("");
-       
-       
+            }
+
+            jTTotal.setText(caixa.getMontante());
+        }
+
+        jtValorInsert.setText("");
     }//GEN-LAST:event_jBInserirMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
         Caixinha caixa = new Caixinha();
-        
-           for (Caixinha c : caixa.LoadAll()) {
-                this.caixa.add(c);
-                caixa = c;
-           }
-           
+        for (Caixinha c : caixa.LoadAll()) {
+            this.caixa.add(c);
+            caixa = c;
+        }
         jTTotal.setText(caixa.getMontante());
-        
-        caixa.Save();   
-       
-        
-        
-        
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jBRemoverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBRemoverMouseClicked
-         Caixinha caixa = new Caixinha();
-                
-         
-                if (!"    .  ".equals(jtValorRemove.getText())){
-             
-                for (Caixinha c : caixa.LoadAll()) {
+
+        // TODO add your handling code here:
+        Caixinha caixa = new Caixinha();
+
+        if ("   .  ".equals(jtValorRemove.getText())) {
+            JOptionPane.showMessageDialog(null, "Insira um valor");
+        } else {
+
+            float valorRemove = Float.parseFloat(jtValorRemove.getText());
+            caixa.setValor(Float.toString(valorRemove));
+            float montante = Float.parseFloat(jTTotal.getText());
+
+            montante -= valorRemove;
+            caixa.setMontante(Float.toString(montante));
+            caixa.Save();
+
+            for (Caixinha c : caixa.LoadAll()) {
                 this.caixa.add(c);
                 caixa = c;
-                }
-                
-                float valorRemove = Float.parseFloat(jtValorRemove.getText().trim());
-                float montante = Float.parseFloat(caixa.getMontante().trim());
-                montante -= valorRemove;
-              
-                jTTotal.setText(Float.toString(montante).trim());
-                caixa.setMontante(Float.toString(montante).trim());
-                caixa.Save();
-      
-                jtValorInsert.setText("");
-                jtValorRemove.setText("");
-                }
-                else{
-                      JOptionPane.showMessageDialog(null,"Insira um valor");
-                }    
-                
-        // TODO add your handling code here:
+            }
+
+            jTTotal.setText(caixa.getMontante());
+        }
+        jtValorRemove.setText("");
     }//GEN-LAST:event_jBRemoverMouseClicked
 
     /**
@@ -279,6 +257,7 @@ public class AlterarCaixinha extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlterarCaixinha().setVisible(true);
             }

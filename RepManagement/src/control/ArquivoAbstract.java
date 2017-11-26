@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package control;
 
@@ -13,14 +14,10 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- *
- * @author kelwin
- */
 public abstract class ArquivoAbstract implements Arquivos, Serializable {
 
     /**
-     *Remove um arquivo selecionado da persistencia
+     * Remove um arquivo selecionado da persistencia
      */
     @Override
     public void Remove() {
@@ -42,11 +39,10 @@ public abstract class ArquivoAbstract implements Arquivos, Serializable {
     protected <T> T LoadFile(File arquivo) throws FileNotFoundException, IOException, ClassNotFoundException {
         T t;
 
-        FileInputStream arquivoE = new FileInputStream(arquivo);
-        ObjectInputStream entrada = new ObjectInputStream(arquivoE);
-        t = (T) entrada.readObject();
-        entrada.close();
-        arquivoE.close();
+        try (FileInputStream arquivoE = new FileInputStream(arquivo);
+                ObjectInputStream entrada = new ObjectInputStream(arquivoE)) {
+            t = (T) entrada.readObject();
+        }
 
         return t;
     }
@@ -61,7 +57,7 @@ public abstract class ArquivoAbstract implements Arquivos, Serializable {
      * @throws IllegalArgumentException
      */
     protected <T> ArrayList<T> LoadAllFiles() throws IOException, FileNotFoundException, ClassNotFoundException, IllegalArgumentException {
-        ArrayList<T> objetos = new ArrayList<T>();
+        ArrayList<T> objetos = new ArrayList<>();
         File diretorio = new File(DiretorioNome());
         File[] arquivos = diretorio.listFiles();
         System.out.println(diretorio.getAbsolutePath());
@@ -69,7 +65,7 @@ public abstract class ArquivoAbstract implements Arquivos, Serializable {
             for (File f : arquivos) {
                 objetos.add((T) LoadFile(f));
             }
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro - " + e);
         }
 

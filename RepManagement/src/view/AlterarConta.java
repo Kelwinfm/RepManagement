@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
@@ -11,10 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Contas;
 
-/**
- *
- * @author kelwi
- */
 public class AlterarConta extends javax.swing.JFrame {
 
     /**
@@ -23,12 +20,13 @@ public class AlterarConta extends javax.swing.JFrame {
     public AlterarConta() {
         initComponents();
     }
-        public void limpar() {
+
+    public void limpar() {
         tipoField.setText(null);
         valorField.setText(null);
         vencField.setText(null);
         pagoField.setText(null);
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -222,37 +220,33 @@ public class AlterarConta extends javax.swing.JFrame {
         Contas conta = new Contas();
         try {
             conta.CarregarContas();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
         Contas consulta = conta.ConsultarContas(jtTipo.getText(), jtMes.getText(), jtAno.getText());
         tipoField.setText(consulta.getTipo());
         valorField.setText(consulta.getValor());
         vencField.setText(consulta.getDataVenc());
-        pagoField.setText(Boolean.toString(consulta.isPago()));
+        pagoField.setText(consulta.getPago());
     }//GEN-LAST:event_jbPesquisarActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
         // TODO add your handling code here:
-       Contas conta = new Contas();
-       try {
+        Contas conta = new Contas();
+        try {
             conta.CarregarContas();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
-       Contas consulta = conta.ConsultarContas(jtTipo.getText(), jtMes.getText(), jtAno.getText());
-       consulta.setTipo(tipoField.getText());
-       consulta.setValor(valorField.getText());
-       consulta.setDataVenc(vencField.getText());
-       consulta.setPago(Boolean.parseBoolean(pagoField.getText()));
-       
-       consulta.Save();
-       JOptionPane.showMessageDialog(rootPane, "Conta Alterada com Sucesso");
-       limpar();
+        Contas consulta = conta.ConsultarContas(jtTipo.getText(), jtMes.getText(), jtAno.getText());
+        consulta.setTipo(tipoField.getText());
+        consulta.setValor(valorField.getText());
+        consulta.setDataVenc(vencField.getText());
+        consulta.setPago(pagoField.getText());
+
+        consulta.Save();
+        JOptionPane.showMessageDialog(rootPane, "Conta Alterada com Sucesso");
+        limpar();
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -260,20 +254,18 @@ public class AlterarConta extends javax.swing.JFrame {
         Contas conta = new Contas();
         try {
             conta.CarregarContas();
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             Logger.getLogger(AlterarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
         String tipo = jtTipo.getText();
         String mes = jtMes.getText();
         String ano = jtAno.getText();
-        
-        if(conta.RemoverContas(tipo, mes, ano)== true){
+
+        if (conta.RemoverContas(tipo, mes, ano) == true) {
             JOptionPane.showMessageDialog(rootPane, "Conta removida com Sucesso");
             limpar();
         }
-                
+
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     /**
@@ -305,6 +297,7 @@ public class AlterarConta extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlterarConta().setVisible(true);
             }

@@ -1,19 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
-import model.Permanente;
 import model.Temporario;
 
 /**
@@ -21,15 +14,14 @@ import model.Temporario;
  * @author kelwi
  */
 public class CadastroMoradorTemp extends javax.swing.JFrame {
-    
+
     public void limpar() {
         jtNome.setText(null);
-        jtContato.setText(null); 
+        jtContato.setText(null);
         jtCpf.setText(null);
         jtValorFixo.setText(null);
         jtPeriodo.setText(null);
     }
-    
 
     /**
      * Creates new form CadastroMoradorTemp
@@ -185,7 +177,7 @@ public class CadastroMoradorTemp extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Temporario T = new Temporario(jtNome.getText(), jtContato.getText(), jtCpf.getText(),"0",jtValorFixo.getText(),jtPeriodo.getText());
+        Temporario T = new Temporario(jtNome.getText(), jtContato.getText(), jtCpf.getText(), "0", jtValorFixo.getText(), jtPeriodo.getText());
         limpar();
         T.cadastrarMoradorTemp(T);
         JOptionPane.showMessageDialog(rootPane, "Novo Morador Cadastrado com Sucesso");
@@ -229,6 +221,7 @@ public class CadastroMoradorTemp extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CadastroMoradorTemp().setVisible(true);
             }

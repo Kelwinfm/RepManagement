@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
@@ -10,10 +11,6 @@ import model.Contas;
 import model.Permanente;
 import model.Temporario;
 
-/**
- *
- * @author kelwi
- */
 public class Relatorio extends javax.swing.JFrame {
 
     /**
@@ -21,12 +18,14 @@ public class Relatorio extends javax.swing.JFrame {
      */
     public Relatorio() {
         initComponents();
-        jtfMes.enableInputMethods(false);
+        jtfMes.setVisible(false);
+        jLabelMes.setVisible(false);
     }
     public String quebraLinha = System.getProperty("line.separator");
     public ArrayList<Permanente> permanente = new ArrayList<>();
     public ArrayList<Temporario> temporario = new ArrayList<>();
     public ArrayList<Contas> contas = new ArrayList<>();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +39,7 @@ public class Relatorio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTexto = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelMes = new javax.swing.JLabel();
         jtfMes = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,7 +62,7 @@ public class Relatorio extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Digite o mês");
+        jLabelMes.setText("Digite o mês");
 
         jtfMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +81,7 @@ public class Relatorio extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbcEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelMes)
                         .addGap(18, 18, 18)
                         .addComponent(jtfMes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(89, 89, 89)
@@ -98,7 +97,7 @@ public class Relatorio extends javax.swing.JFrame {
                     .addComponent(jbcEscolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfMes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabelMes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -111,13 +110,16 @@ public class Relatorio extends javax.swing.JFrame {
     private void jbcEscolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcEscolhaActionPerformed
         // TODO add your handling code here:
         if (this.jbcEscolha.getSelectedItem().equals("Moradores Permanentes")) {
-            jtfMes.enableInputMethods(false);
+            jtfMes.setVisible(false);
+            jLabelMes.setVisible(false);
         }
         if (this.jbcEscolha.getSelectedItem().equals("Moradores Temporarios")) {
-            jtfMes.enableInputMethods(false);
+            jtfMes.setVisible(false);
+            jLabelMes.setVisible(false);
         }
         if (this.jbcEscolha.getSelectedItem().equals("Contas")) {
-            jtfMes.enableInputMethods(true);
+            jtfMes.setVisible(true);
+            jLabelMes.setVisible(true);
         }
     }//GEN-LAST:event_jbcEscolhaActionPerformed
 
@@ -127,16 +129,16 @@ public class Relatorio extends javax.swing.JFrame {
         int print = 0;
 
         if (this.jbcEscolha.getSelectedItem().equals("Moradores Permanentes")) {
-                Permanente permanente = new Permanente();
-                Permanente mostra = new Permanente();
-                
-                for (Permanente p : permanente.LoadAll()) {
+            Permanente permanente = new Permanente();
+            Permanente mostra = new Permanente();
+
+            for (Permanente p : permanente.LoadAll()) {
                 this.permanente.add(p);
                 mostra = p;
-                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t\t" + mostra.getRg()+ "\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo()+ "\t" + mostra.getDataEntrada() + quebraLinha + imprimir);
-                
-                 }
-                print = 1;
+                imprimir = (mostra.getNome() + "\t" + mostra.getContato() + "\t" + mostra.getCpf() + "\t\t" + mostra.getRg() + "\t" + mostra.getSaldoDevedor() + "\t" + mostra.getValorFixo() + "\t" + mostra.getDataEntrada() + quebraLinha + imprimir);
+
+            }
+            print = 1;
         }
         if (this.jbcEscolha.getSelectedItem().equals("Moradores Temporarios")) {
             Temporario temporario = new Temporario();
@@ -158,8 +160,8 @@ public class Relatorio extends javax.swing.JFrame {
             for (Contas c : contas.LoadAll()) {
                 this.contas.add(c);
                 mostra = c;
-                if(jtfMes.getText().equalsIgnoreCase(mostra.getMes()) ){
-                imprimir = (mostra.getTipo() + "\t" + mostra.getValor() + "\t" + mostra.getDataVenc()+ "\t\t" + mostra.isPago() + quebraLinha + imprimir);
+                if (jtfMes.getText().equalsIgnoreCase(mostra.getMes())) {
+                    imprimir = (mostra.getTipo() + "\t" + mostra.getValor() + "\t" + mostra.getDataVenc() + "\t\t" + mostra.getPago() + quebraLinha + imprimir);
                 }
             }
             print = 3;
@@ -168,21 +170,21 @@ public class Relatorio extends javax.swing.JFrame {
 
         switch (print) {
             case 1:
-            imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "RG" + "\t" + "Saldo devedor" +"\t" + "Valor fixo" +"\t" + "Data de entrada" + quebraLinha + quebraLinha + imprimir);
+                imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "RG" + "\t" + "Saldo devedor" + "\t" + "Valor fixo" + "\t" + "Data de entrada" + quebraLinha + quebraLinha + imprimir);
 
-            jtTexto.setText(imprimir);
+                jtTexto.setText(imprimir);
 
-            break;
+                break;
             case 2:
-            imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "Saldo devedor" +"\t" + "Valor fixo" + quebraLinha + quebraLinha + imprimir);
-            jtTexto.setText(imprimir);
+                imprimir = ("Nome" + "\t" + "Contato" + "\t\t" + "CPF" + "\t\t" + "Saldo devedor" + "\t" + "Valor fixo" + quebraLinha + quebraLinha + imprimir);
+                jtTexto.setText(imprimir);
 
-            break;
+                break;
             case 3:
-            imprimir = ("Tipo" + "\t" + "Valor" + "\t" + "Data de vencimento" + "\t" + "Pago" + quebraLinha + quebraLinha + imprimir);
+                imprimir = ("Tipo" + "\t" + "Valor" + "\t" + "Data de vencimento" + "\t" + "Pago" + quebraLinha + quebraLinha + imprimir);
 
-            jtTexto.setText(imprimir);
-            break;
+                jtTexto.setText(imprimir);
+                break;
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -220,6 +222,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Relatorio().setVisible(true);
             }
@@ -228,7 +231,7 @@ public class Relatorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelMes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox jbcEscolha;
     private javax.swing.JTextArea jtTexto;

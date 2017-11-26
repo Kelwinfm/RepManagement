@@ -16,18 +16,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author FelipeTosta
- */
 public class GeCasa extends Casa implements Arquivos, Serializable {
-    
-    
-    
-   
+
     @Override
     public String ArquivoNome() {
-        String s = DiretorioNome() + this.getNome()+ ".Casa";
+        String s = DiretorioNome() + this.getNome() + ".Casa";
         return s;
     }
 
@@ -110,14 +103,16 @@ public class GeCasa extends Casa implements Arquivos, Serializable {
         }
     }
     public ArrayList<GeCasa> casas = new ArrayList<>();
-     public void CarregarCasa() throws IllegalArgumentException, IOException {
+
+    public void CarregarCasa() throws IllegalArgumentException, IOException {
         GeCasa casa = new GeCasa();
 
-        for (GeCasa  c : casa.LoadAll()) {
+        for (GeCasa c : casa.LoadAll()) {
             this.casas.add(c);
         }
     }
-     public GeCasa ConsultarCasa(String nome) {
+
+    public GeCasa ConsultarCasa(String nome) {
 
         for (GeCasa casa : casas) {
             if (casa.getNome().compareToIgnoreCase(nome) == 0) {
@@ -127,5 +122,3 @@ public class GeCasa extends Casa implements Arquivos, Serializable {
         return null;
     }
 }
-    
-

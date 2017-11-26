@@ -1,27 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
 import javax.swing.JOptionPane;
 import model.Contas;
-import model.Permanente;
 
-/**
- *
- * @author FelipeTosta
- */
 public class CadastroContas extends javax.swing.JFrame {
 
-        public void limpar() {
+    public void limpar() {
         tfTipo.setText(null);
-        tfValor.setText(null); 
+        tfValor.setText(null);
         tfVenc.setText(null);
         tfMes.setText(null);
         tfAno.setText(null);
     }
+
     /**
      * Creates new form CadastroContas
      */
@@ -189,10 +186,10 @@ public class CadastroContas extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Contas C = new Contas(tfMes.getText(), tfAno.getText(), tfValor.getText(),tfVenc.getText(),tfTipo.getText(),true);
-        limpar();
+        Contas C = new Contas(tfMes.getText(), tfAno.getText(), tfValor.getText(), tfVenc.getText(), tfTipo.getText(), "true");
         C.inserirConta(C);
         JOptionPane.showMessageDialog(rootPane, "Conta Cadastrada com Sucesso");
+        limpar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -224,6 +221,7 @@ public class CadastroContas extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CadastroContas().setVisible(true);
             }

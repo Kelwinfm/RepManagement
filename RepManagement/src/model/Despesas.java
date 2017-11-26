@@ -7,13 +7,11 @@
 package model;
 
 import control.ArquivoAbstract;
-import java.util.Date;
 
 /**
  *
  * Esta classe abstrata de Despesas é a super classe de Contas e Caixinha
  *
- * @author kelwin
  */
 public abstract class Despesas extends ArquivoAbstract {
 
@@ -46,12 +44,6 @@ public abstract class Despesas extends ArquivoAbstract {
         setDataVenc(dataVenc);
     }
 
-    /*public Despesas(int mes, int ano, float valor, String dataVenc) {
-        this.mes = mes;
-        this.ano = ano;
-        this.valor = valor;
-        this.dataVenc = dataVenc;
-    }*/
     /**
      *
      * @return mes da despesa
@@ -64,7 +56,7 @@ public abstract class Despesas extends ArquivoAbstract {
      *
      * @param mes
      */
-    public void setMes(String mes) {
+    public final void setMes(String mes) {
         this.mes = mes;
     }
 
@@ -80,7 +72,7 @@ public abstract class Despesas extends ArquivoAbstract {
      *
      * @param ano
      */
-    public void setAno(String ano) {
+    public final void setAno(String ano) {
         this.ano = ano;
     }
 
@@ -96,7 +88,7 @@ public abstract class Despesas extends ArquivoAbstract {
      *
      * @param valor
      */
-    public void setValor(String valor) {
+    public final void setValor(String valor) {
         this.valor = valor;
     }
 
@@ -112,7 +104,7 @@ public abstract class Despesas extends ArquivoAbstract {
      *
      * @param dataVenc
      */
-    public void setDataVenc(String dataVenc) {
+    public final void setDataVenc(String dataVenc) {
         this.dataVenc = dataVenc;
     }
 

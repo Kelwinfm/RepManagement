@@ -8,11 +8,6 @@ package model;
 
 import control.ArquivoAbstract;
 
-/**
- *
- * @author kelwin
- * @author felipe
- */
 public abstract class Moradores extends ArquivoAbstract {
 
     protected String nome;
@@ -60,7 +55,7 @@ public abstract class Moradores extends ArquivoAbstract {
      *
      * @param nome
      */
-    public void setNome(String nome) {
+    public final void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -76,7 +71,7 @@ public abstract class Moradores extends ArquivoAbstract {
      *
      * @param contato
      */
-    public void setContato(String contato) {
+    public final void setContato(String contato) {
         this.contato = contato;
     }
 
@@ -92,7 +87,7 @@ public abstract class Moradores extends ArquivoAbstract {
      *
      * @param cpf
      */
-    public void setCpf(String cpf) {
+    public final void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -108,7 +103,7 @@ public abstract class Moradores extends ArquivoAbstract {
      *
      * @param saldoDevedor
      */
-    public void setSaldoDevedor(String saldoDevedor) {
+    public final void setSaldoDevedor(String saldoDevedor) {
         this.saldoDevedor = saldoDevedor;
     }
 
@@ -124,28 +119,8 @@ public abstract class Moradores extends ArquivoAbstract {
      *
      * @param valorFixo
      */
-    public void setValorFixo(String valorFixo) {
+    public final void setValorFixo(String valorFixo) {
         this.valorFixo = valorFixo;
-    }
-
-    /**
-     *responsavel por cadastrar um novo morador
-     */
-    public void cadastrarMorador() {
-
-    }
-
-    /**
-     * lista todos os moradores com seus atributos
-     */
-    public void listarMoradores() {
-    }
-
-    /**
-     * coloca moradores exlcuidos em moradores antigos
-     */
-    public void mvAntigosMoradores() {
-
     }
 
     /**

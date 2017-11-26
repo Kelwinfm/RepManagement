@@ -1,33 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* Código de projeto de Programação Orientada a Objetos II
+* Gerenciamento do financeiro de republicas
+* FT-UNICAMP
+*
  */
 package view;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Permanente;
 
-/**
- *
- * @author kelwi
- */
 public class CadastroMoradorPerma extends javax.swing.JFrame {
-    
-        
-    
+
     public void limpar() {
         jtNome.setText(null);
-        jtContato.setText(null); 
+        jtContato.setText(null);
         jtCpf.setText(null);
         jtValorFixo.setText(null);
         jtRg.setText(null);
         jtData.setText(null);
     }
+
     /**
      * Creates new form CadastroMorador
      */
@@ -201,7 +193,7 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         // TODO add your handling code here:
-        Permanente P = new Permanente(jtNome.getText(), jtContato.getText(), jtCpf.getText(),"0",jtValorFixo.getText(),jtData.getText(),jtRg.getText());
+        Permanente P = new Permanente(jtNome.getText(), jtContato.getText(), jtCpf.getText(), "0", jtValorFixo.getText(), jtData.getText(), jtRg.getText());
         limpar();
         P.cadastrarMoradorPerm(P);
         JOptionPane.showMessageDialog(rootPane, "Novo Morador Cadastrado com Sucesso");
@@ -210,7 +202,7 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         // TODO add your handling code here:
         CadastroMoradorPerma.this.dispose();
-        
+
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeActionPerformed
@@ -247,6 +239,7 @@ public class CadastroMoradorPerma extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CadastroMoradorPerma().setVisible(true);
             }
